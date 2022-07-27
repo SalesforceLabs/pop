@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <formulas>
+        <name>Name_TextFormula</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!TEXT($Record.Langauge__c)}+&apos; | &apos;+{!$Record.Program__r.Name},80)</expression>
+    </formulas>
+    <interviewLabel>Program Script: Trigger: On New {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Program Script: Trigger: On New</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>ProgramScript_UpdateRecord</name>
+        <label>ProgramScript UpdateRecord</label>
+        <locationX>176</locationX>
+        <locationY>311</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>Name_TextFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <startElementReference>ProgramScript_UpdateRecord</startElementReference>
+    <status>Active</status>
+</Flow>

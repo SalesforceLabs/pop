@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Program</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Programs</value>
+    </caseValues>
+    <fields>
+        <help><!-- Indicates if the Program is active. --></help>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <help><!-- If the agent connects with the Account, the record is marked as closed. --></help>
+        <label><!-- Close Account on Connected --></label>
+        <name>Close_Account_on_Connected__c</name>
+    </fields>
+    <layouts>
+        <layout>Program Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Clone Unconnected Outreach --></label>
+        <name>Clone_Unconnected_Outreach</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

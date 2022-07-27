@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <decisions>
+        <name>Program_Decision</name>
+        <label>Program Decision</label>
+        <locationX>374</locationX>
+        <locationY>408</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>It_Is_Set_to_Close_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Program_GetRecord.Close_Account_on_Connected__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ProgramMemberRelatedAccount_UpdateRecord</targetReference>
+            </connector>
+            <label>It Is Set to Close Account</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Program Outreach: Trigger: On Close Connected {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Program Outreach: Trigger: On Close Connected</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Program_GetRecord</name>
+        <label>Program GetRecord</label>
+        <locationX>374</locationX>
+        <locationY>288</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Program_Decision</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Program__c</elementReference>
+            </value>
+        </filters>
+        <object>Program__c</object>
+    </recordLookups>
+    <recordUpdates>
+        <name>ProgramMemberRelatedAccount_UpdateRecord</name>
+        <label>ProgramMemberRelatedAccount UpdateRecord</label>
+        <locationX>242</locationX>
+        <locationY>528</locationY>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Account__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Program__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Program__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status_Reason__c</field>
+            <value>
+                <stringValue>Connected Elsewhere</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Program_Outreach__c</object>
+    </recordUpdates>
+    <status>Active</status>
+</Flow>
