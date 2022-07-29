@@ -55,6 +55,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Do_Not_Call_Requested__c</field>
+            <value>
+                <elementReference>Contact_GetRecord.DoNotCall</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>First_Name__c</field>
             <value>
                 <elementReference>Contact_GetRecord.FirstName</elementReference>
