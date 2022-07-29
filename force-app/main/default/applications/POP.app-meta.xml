@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Proactive Outreach Programs</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>POP</label>
+    <navType>Console</navType>
+    <tabs>POP_Agent</tabs>
+    <tabs>Program__c</tabs>
+    <tabs>Program_Script__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>POP_UtilityBar</utilityBar>
+    <workspaceConfig>
+        <mappings>
+            <tab>POP_Agent</tab>
+        </mappings>
+        <mappings>
+            <tab>Program_Script__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Program__c</tab>
+        </mappings>
+    </workspaceConfig>
+</CustomApplication>

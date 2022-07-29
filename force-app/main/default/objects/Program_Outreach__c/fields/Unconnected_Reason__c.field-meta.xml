@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unconnected_Reason__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the reason that best fits why the connection was not possible.</inlineHelpText>
+    <label>Unconnected Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status_Reason__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Reached Voicemail</fullName>
+                <default>false</default>
+                <label>Reached Voicemail</label>
+            </value>
+            <value>
+                <fullName>Bad/Incorrect Phone</fullName>
+                <default>false</default>
+                <label>Bad/Incorrect Phone</label>
+            </value>
+            <value>
+                <fullName>Hung Up</fullName>
+                <default>false</default>
+                <label>Hung Up</label>
+            </value>
+            <value>
+                <fullName>Incorrect Contact</fullName>
+                <default>false</default>
+                <label>Incorrect Contact</label>
+            </value>
+            <value>
+                <fullName>Contact Not Interested</fullName>
+                <default>false</default>
+                <label>Contact Not Interested</label>
+            </value>
+            <value>
+                <fullName>Contact No Longer With Company</fullName>
+                <default>false</default>
+                <label>Contact No Longer With Company</label>
+            </value>
+            <value>
+                <fullName>Contact Not Available Due to IVR (Interactive Voice Response)</fullName>
+                <default>false</default>
+                <label>Contact Not Available Due to IVR (Interactive Voice Response)</label>
+            </value>
+            <value>
+                <fullName>Unable To Leave Voicemail / Voicemail Full</fullName>
+                <default>false</default>
+                <label>Unable To Leave Voicemail / Voicemail Full</label>
+            </value>
+            <value>
+                <fullName>Gate Keeper (Assistant / Receptionist) Answered and could not connect</fullName>
+                <default>false</default>
+                <label>Gate Keeper (Assistant / Receptionist) Answered and could not connect</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Unconnected</controllingFieldValue>
+            <valueName>Reached Voicemail</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unconnected</controllingFieldValue>
+            <valueName>Bad/Incorrect Phone</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unconnected</controllingFieldValue>
+            <valueName>Hung Up</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unconnected</controllingFieldValue>
+            <valueName>Incorrect Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unconnected</controllingFieldValue>
+            <valueName>Contact Not Interested</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unconnected</controllingFieldValue>
+            <valueName>Contact No Longer With Company</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unconnected</controllingFieldValue>
+            <valueName>Contact Not Available Due to IVR (Interactive Voice Response)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unconnected</controllingFieldValue>
+            <valueName>Unable To Leave Voicemail / Voicemail Full</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unconnected</controllingFieldValue>
+            <valueName>Gate Keeper (Assistant / Receptionist) Answered and could not connect</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>
