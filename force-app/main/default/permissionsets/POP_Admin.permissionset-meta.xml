@@ -12,6 +12,14 @@
         <enabled>true</enabled>
         <name>Can_Translate</name>
     </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Can_View_Outreach_Details</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Can_View_Program_Details</name>
+    </customPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.AccountId</field>

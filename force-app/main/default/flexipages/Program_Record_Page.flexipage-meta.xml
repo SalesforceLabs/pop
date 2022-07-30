@@ -243,11 +243,36 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
+                    <name>flowArguments</name>
+                    <value>[{&quot;label&quot;:&quot;MODE&quot;,&quot;dataType&quot;:&quot;Picklist&quot;,&quot;supportsRecordId&quot;:true,&quot;value&quot;:&quot;RUN&quot;},{&quot;label&quot;:&quot;recordId&quot;,&quot;dataType&quot;:&quot;String&quot;,&quot;supportsRecordId&quot;:true,&quot;value&quot;:&quot;{!Record.Id}&quot;}]</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>flowLayout</name>
+                    <value>oneColumn</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>flowName</name>
+                    <value>POP_Screen_Script</value>
+                </componentInstanceProperties>
+                <componentName>flowruntime:interview</componentName>
+                <identifier>flowruntime_interview</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
                     <name>tabs</name>
                     <value>Facet-fb51304c-09c0-4777-977f-8d42e77caf3e</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tabset</componentName>
                 <identifier>flexipage_tabset</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!$Permission.CustomPermission.Can_View_Program_Details}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>true</rightValue>
+                    </criteria>
+                </visibilityRule>
             </componentInstance>
         </itemInstances>
         <mode>Replace</mode>
