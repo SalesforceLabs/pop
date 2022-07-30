@@ -4,6 +4,10 @@
         <application>POP</application>
         <visible>true</visible>
     </applicationVisibilities>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Can_Run_Script</name>
+    </customPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Program_Outreach__c.Assigned_To__c</field>
@@ -222,10 +226,6 @@
         <object>Program__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-    <tabSettings>
-        <tab>Program_Script__c</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
     <tabSettings>
         <tab>Program__c</tab>
         <visibility>Visible</visibility>

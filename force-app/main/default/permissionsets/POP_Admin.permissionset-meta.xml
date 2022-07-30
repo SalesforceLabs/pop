@@ -10,6 +10,10 @@
     </customPermissions>
     <customPermissions>
         <enabled>true</enabled>
+        <name>Can_Run_Script</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
         <name>Can_Translate</name>
     </customPermissions>
     <customPermissions>
