@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>55.0</apiVersion>
+    <decisions>
+        <name>CanRunScript_Decision</name>
+        <label>CanRunScript Decision</label>
+        <locationX>182</locationX>
+        <locationY>278</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>User_Can_Run_Script</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>CanRunScript_Subflow.CAN_RUN_SCRIPT</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Program_GetRecord</targetReference>
+            </connector>
+            <label>User Can Run Script</label>
+        </rules>
+    </decisions>
     <interviewLabel>POP: Screen: Script {!$Flow.CurrentDateTime}</interviewLabel>
     <label>POP: Screen: Script</label>
     <processMetadataValues>
@@ -25,8 +47,8 @@
     <recordLookups>
         <name>Program_GetRecord</name>
         <label>Program GetRecord</label>
-        <locationX>176</locationX>
-        <locationY>158</locationY>
+        <locationX>50</locationX>
+        <locationY>398</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <filterLogic>and</filterLogic>
         <filters>
@@ -41,13 +63,24 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
-        <locationX>50</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Program_GetRecord</targetReference>
+            <targetReference>CanRunScript_Subflow</targetReference>
         </connector>
     </start>
     <status>Active</status>
+    <subflows>
+        <name>CanRunScript_Subflow</name>
+        <label>CanRunScript Subflow</label>
+        <locationX>182</locationX>
+        <locationY>158</locationY>
+        <connector>
+            <targetReference>CanRunScript_Decision</targetReference>
+        </connector>
+        <flowName>POP_Screen_Can_Run_Script</flowName>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
     <variables>
         <name>LANGUAGE</name>
         <dataType>Picklist</dataType>
