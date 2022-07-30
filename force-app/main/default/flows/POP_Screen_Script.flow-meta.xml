@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <apiVersion>55.0</apiVersion>
+    <assignments>
+        <name>LANGUAGE_Assignment</name>
+        <label>LANGUAGE Assignment</label>
+        <locationX>138</locationX>
+        <locationY>758</locationY>
+        <assignmentItems>
+            <assignToReference>LANGUAGE</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Language_Picklist</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>ProgramScript_GetRecord</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>CanRunScript_Decision</name>
         <label>CanRunScript Decision</label>
-        <locationX>182</locationX>
+        <locationX>226</locationX>
         <locationY>278</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -23,6 +39,46 @@
             <label>User Can Run Script</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>LANGUAGE_Decision</name>
+        <label>LANGUAGE Decision</label>
+        <locationX>50</locationX>
+        <locationY>518</locationY>
+        <defaultConnector>
+            <targetReference>LanguageSelect_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Language_Was_Set</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LANGUAGE</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>LANGUAGE</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ProgramScript_GetRecord</targetReference>
+            </connector>
+            <label>Language Was Set</label>
+        </rules>
+    </decisions>
+    <dynamicChoiceSets>
+        <name>Language_PicklistChoiceSet</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Langauge__c</picklistField>
+        <picklistObject>Program_Script__c</picklistObject>
+    </dynamicChoiceSets>
     <interviewLabel>POP: Screen: Script {!$Flow.CurrentDateTime}</interviewLabel>
     <label>POP: Screen: Script</label>
     <processMetadataValues>
@@ -50,6 +106,9 @@
         <locationX>50</locationX>
         <locationY>398</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>LANGUAGE_Decision</targetReference>
+        </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -62,8 +121,55 @@
         <object>Program__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>ProgramScript_GetRecord</name>
+        <label>ProgramScript GetRecord</label>
+        <locationX>50</locationX>
+        <locationY>974</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Program__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Langauge__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>LANGUAGE</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Program_Script__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <screens>
+        <name>LanguageSelect_Screen</name>
+        <label>LanguageSelect Screen</label>
+        <locationX>138</locationX>
+        <locationY>638</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>LANGUAGE_Assignment</targetReference>
+        </connector>
+        <fields>
+            <name>Language_Picklist</name>
+            <choiceReferences>Language_PicklistChoiceSet</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Select a Language</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
     <start>
-        <locationX>56</locationX>
+        <locationX>100</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>CanRunScript_Subflow</targetReference>
@@ -73,7 +179,7 @@
     <subflows>
         <name>CanRunScript_Subflow</name>
         <label>CanRunScript Subflow</label>
-        <locationX>182</locationX>
+        <locationX>226</locationX>
         <locationY>158</locationY>
         <connector>
             <targetReference>CanRunScript_Decision</targetReference>
