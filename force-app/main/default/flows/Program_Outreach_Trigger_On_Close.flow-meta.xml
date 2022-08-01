@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>55.0</apiVersion>
+    <description>When a program outreach is changed to CLOSED: Update Closed Date/Time to Now</description>
     <interviewLabel>Program Outreach: Trigger: On Close {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Program Outreach: Trigger: On Close</label>
     <processMetadataValues>

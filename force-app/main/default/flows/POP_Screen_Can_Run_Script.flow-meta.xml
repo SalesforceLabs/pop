@@ -52,6 +52,7 @@
             <label>User Can Run Script</label>
         </rules>
     </decisions>
+    <description>Autolaunched Flow that checks if current user has permission to run a script</description>
     <interviewLabel>POP: Screen: Can Run Script {!$Flow.CurrentDateTime}</interviewLabel>
     <label>POP: Screen: Can Run Script</label>
     <processMetadataValues>

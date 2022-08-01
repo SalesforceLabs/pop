@@ -53,6 +53,7 @@
             <label>User Can Run Script</label>
         </rules>
     </decisions>
+    <description>The main script flow that agents or translators use on Program or Program Script record. Set MODE to EDIT or RUN depending on which experience desired</description>
     <dynamicChoiceSets>
         <name>Language_PicklistChoiceSet</name>
         <dataType>Picklist</dataType>

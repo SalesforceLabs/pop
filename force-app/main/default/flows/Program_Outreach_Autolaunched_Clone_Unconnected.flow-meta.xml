@@ -104,13 +104,14 @@
         <connector>
             <targetReference>ProgramOutreach_Loop</targetReference>
         </connector>
-        <limit>10000</limit>
+        <limit>5000</limit>
         <sortOptions>
             <doesPutEmptyStringAndNullFirst>false</doesPutEmptyStringAndNullFirst>
             <sortField>Closed_Date_Time__c</sortField>
             <sortOrder>Asc</sortOrder>
         </sortOptions>
     </collectionProcessors>
+    <description>Autolaunched Flow that will clone any outreach that is marked unconnected with a valid reasons for cloning. Since this is limited to 5k records, it keeps track of which ones were cloned if needed to run multiple times.</description>
     <interviewLabel>Program Outreach: Autolaunched: Clone Unconnected {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Program Outreach: Autolaunched: Clone Unconnected</label>
     <loops>

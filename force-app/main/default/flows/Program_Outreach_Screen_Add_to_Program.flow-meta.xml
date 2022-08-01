@@ -72,6 +72,7 @@
             <label>We found an outreach</label>
         </rules>
     </decisions>
+    <description>Launch a screen from contact listview and pass in contact ids to add to a selected program. If contact already exists, it will not be added.</description>
     <dynamicChoiceSets>
         <name>ProgramActive_RecordChoiceSet</name>
         <dataType>String</dataType>

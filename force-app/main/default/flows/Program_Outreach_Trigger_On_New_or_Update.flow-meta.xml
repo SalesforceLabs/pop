@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>55.0</apiVersion>
+    <description>When a Program Outreach is created or updated: 1) Index Language and Region fields for searching</description>
     <interviewLabel>Program Outreach: Trigger: On New or Update {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Program Outreach: Trigger: On New or Update</label>
     <processMetadataValues>

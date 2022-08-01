@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>55.0</apiVersion>
+    <description>When a Program Outreach is Closed to prevent over-communication 1) Update outreaches to PAUSED across programs for the same contact that are in NEW status 2) UNPAUSE a day later</description>
     <interviewLabel>Program Outreach: Trigger: Pause On Complete {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Program Outreach: Trigger: Pause On Complete</label>
     <processMetadataValues>
