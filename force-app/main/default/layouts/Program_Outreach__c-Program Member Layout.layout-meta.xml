@@ -79,7 +79,7 @@
                 <field>Unconnected_Reason__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Language__c</field>
             </layoutItems>
             <layoutItems>
@@ -117,6 +117,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Indexed_Region__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Is_Test__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>
