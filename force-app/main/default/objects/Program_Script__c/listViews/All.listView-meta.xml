@@ -3,7 +3,7 @@
     <fullName>All</fullName>
     <columns>NAME</columns>
     <columns>Program__c</columns>
-    <columns>Langauge__c</columns>
+    <columns>Language__c</columns>
     <columns>Status__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>

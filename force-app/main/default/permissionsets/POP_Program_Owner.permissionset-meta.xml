@@ -106,11 +106,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Program_Outreach__c.Language__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Program_Outreach__c.No_Longer_With_Company__c</field>
         <readable>true</readable>
     </fieldPermissions>

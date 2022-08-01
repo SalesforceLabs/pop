@@ -59,7 +59,7 @@
         <dataType>Picklist</dataType>
         <displayField xsi:nil="true"/>
         <object xsi:nil="true"/>
-        <picklistField>Langauge__c</picklistField>
+        <picklistField>Language__c</picklistField>
         <picklistObject>Program_Script__c</picklistObject>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
@@ -127,7 +127,7 @@
             </value>
         </filters>
         <filters>
-            <field>Langauge__c</field>
+            <field>Language__c</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>LANGUAGE</elementReference>

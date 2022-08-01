@@ -61,7 +61,7 @@
         <inputAssignments>
             <name>LANGUAGE</name>
             <value>
-                <elementReference>ProgramScript_GetRecord.Langauge__c</elementReference>
+                <elementReference>ProgramScript_GetRecord.Language__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
