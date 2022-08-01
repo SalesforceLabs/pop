@@ -214,6 +214,13 @@
                     <value>1440</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
+                    <name>label</name>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>reportFilter</name>
+                    <value>CUST_ID</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
                     <name>reportName</name>
                     <value>Program_Outreach_Status_Reason_Z5o</value>
                 </componentInstanceProperties>
