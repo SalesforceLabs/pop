@@ -2,9 +2,9 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Close_Account_on_Connected__c</fullName>
     <defaultValue>false</defaultValue>
-    <description>If the agent connects with the Account, the record is marked as closed. This field is defaulted to unchecked.</description>
+    <description>If the agent connects with the Account, all other New outreaches will be closed as connected elsewhere.</description>
     <externalId>false</externalId>
-    <inlineHelpText>If the agent connects with the Account, the record is marked as closed.</inlineHelpText>
+    <inlineHelpText>If the agent connects with the Account, all other New outreaches will be closed as connected elsewhere.</inlineHelpText>
     <label>Close Account on Connected</label>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
