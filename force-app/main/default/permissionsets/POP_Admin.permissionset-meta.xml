@@ -258,6 +258,10 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <tabSettings>
+        <tab>POP_Admin</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>Program_Script__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>

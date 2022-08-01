@@ -13,11 +13,15 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>POP</label>
     <navType>Console</navType>
+    <tabs>POP_Admin</tabs>
     <tabs>Program__c</tabs>
     <tabs>Program_Script__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>POP_UtilityBar</utilityBar>
     <workspaceConfig>
+        <mappings>
+            <tab>POP_Admin</tab>
+        </mappings>
         <mappings>
             <tab>Program_Script__c</tab>
         </mappings>
