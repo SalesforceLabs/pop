@@ -20,13 +20,6 @@
                 <elementReference>Region_Picklist</elementReference>
             </value>
         </assignmentItems>
-        <assignmentItems>
-            <assignToReference>IS_TEST</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>IsTest_Toggle.value</elementReference>
-            </value>
-        </assignmentItems>
         <connector>
             <targetReference>ProgramScript_GetRecord</targetReference>
         </connector>
@@ -201,48 +194,6 @@
                     <operator>NotEqualTo</operator>
                     <rightValue>
                         <stringValue></stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
-        </fields>
-        <fields>
-            <name>IsTest_Toggle</name>
-            <extensionName>flowruntime:toggle</extensionName>
-            <fieldType>ComponentInstance</fieldType>
-            <inputParameters>
-                <name>label</name>
-                <value>
-                    <stringValue>Just Testing?</stringValue>
-                </value>
-            </inputParameters>
-            <inputParameters>
-                <name>messageToggleActive</name>
-                <value>
-                    <stringValue>Yup</stringValue>
-                </value>
-            </inputParameters>
-            <inputParameters>
-                <name>messageToggleInactive</name>
-                <value>
-                    <stringValue>Nope</stringValue>
-                </value>
-            </inputParameters>
-            <inputParameters>
-                <name>value</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </inputParameters>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
-            <storeOutputAutomatically>true</storeOutputAutomatically>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>MODE</leftValueReference>
-                    <operator>NotEqualTo</operator>
-                    <rightValue>
-                        <stringValue>EDIT</stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>

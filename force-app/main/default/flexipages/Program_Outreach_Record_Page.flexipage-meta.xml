@@ -110,12 +110,6 @@
                 <identifier>RecordProgram_cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldItem>Record.Is_Test__c</fieldItem>
-                <identifier>RecordIs_Test_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
         <name>Facet-8deea994-14c8-4d68-a4be-2dc51d6a5367</name>
         <type>Facet</type>
     </flexiPageRegions>
