@@ -11,7 +11,7 @@
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
-    <label>POP</label>
+    <label>pop</label>
     <navType>Console</navType>
     <tabs>POP_Admin</tabs>
     <tabs>Program__c</tabs>
