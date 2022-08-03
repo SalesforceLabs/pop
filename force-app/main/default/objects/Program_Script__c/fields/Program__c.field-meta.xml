@@ -4,7 +4,6 @@
     <externalId>false</externalId>
     <label>Program</label>
     <referenceTo>Program__c</referenceTo>
-    <relationshipLabel>Program Scripts</relationshipLabel>
     <relationshipName>Program_Scripts</relationshipName>
     <relationshipOrder>0</relationshipOrder>
     <reparentableMasterDetail>false</reparentableMasterDetail>

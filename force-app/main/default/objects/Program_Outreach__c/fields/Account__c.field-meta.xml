@@ -5,7 +5,6 @@
     <externalId>false</externalId>
     <label>Account</label>
     <referenceTo>Account</referenceTo>
-    <relationshipLabel>Program Outreaches</relationshipLabel>
     <relationshipName>Program_Outreaches</relationshipName>
     <required>true</required>
     <trackHistory>false</trackHistory>
