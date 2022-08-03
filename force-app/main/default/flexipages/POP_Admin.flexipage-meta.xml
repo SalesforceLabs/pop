@@ -50,7 +50,7 @@
         <name>column2</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>POP Admin</masterLabel>
+    <masterLabel>(pop) Admin</masterLabel>
     <template>
         <name>flexipage:appHomeTemplateTwoColumns</name>
     </template>
