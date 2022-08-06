@@ -2,7 +2,7 @@
 <ContentAsset xmlns="http://soap.sforce.com/2006/04/metadata">
     <isVisibleByExternalUsers>false</isVisibleByExternalUsers>
     <language>en_US</language>
-    <masterLabel>poplogo_128px1</masterLabel>
+    <masterLabel>pop_logo_2</masterLabel>
     <relationships>
         <organization>
             <access>VIEWER</access>
@@ -11,7 +11,7 @@
     <versions>
         <version>
             <number>1</number>
-            <pathOnClient>pop-logo_128px.png</pathOnClient>
+            <pathOnClient>pop logo (2).png</pathOnClient>
         </version>
     </versions>
 </ContentAsset>
