@@ -4,6 +4,8 @@
 
 # Salesforce cache
 .sfdx/
+.sf/
+.github/
 .localdevserver/
 
 # LWC VSCode autocomplete
