@@ -4,7 +4,7 @@
     <assignments>
         <name>Option_Assignment</name>
         <label>Option Assignment</label>
-        <locationX>50</locationX>
+        <locationX>325</locationX>
         <locationY>638</locationY>
         <assignmentItems>
             <assignToReference>LANGUAGE</assignToReference>
@@ -24,10 +24,49 @@
             <targetReference>ProgramScript_GetRecord</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Outreach_Owner_and_Status</name>
+        <label>Outreach Owner and Status</label>
+        <locationX>600</locationX>
+        <locationY>1238</locationY>
+        <assignmentItems>
+            <assignToReference>Program_Outreach_Get_Record.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Program_Outreach_Get_Record.Assigned_To__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>CurrentUser</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Outreach_Record_Owner_Update</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Outreach_Status_Change_Closed_Connected</name>
+        <label>Outreach Status Change - Closed Connected</label>
+        <locationX>314</locationX>
+        <locationY>1958</locationY>
+        <assignmentItems>
+            <assignToReference>Program_Outreach_Get_Record.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Outreach_Hello</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>CanRunScript_Decision</name>
         <label>CanRunScript Decision</label>
-        <locationX>182</locationX>
+        <locationX>627</locationX>
         <locationY>278</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -44,6 +83,75 @@
                 <targetReference>Program_GetRecord</targetReference>
             </connector>
             <label>User Can Run Script</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Outreach_Answer</name>
+        <label>Outreach Answer</label>
+        <locationX>600</locationX>
+        <locationY>1598</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Outreach_Answer_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>dummy</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Outreach_Answered</targetReference>
+            </connector>
+            <label>Outreach Answer - True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Outreach_Available_to_Speak</name>
+        <label>Outreach Available to Speak?</label>
+        <locationX>446</locationX>
+        <locationY>1838</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Available_to_Speak_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>dummy</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Outreach_Status_Change_Closed_Connected</targetReference>
+            </connector>
+            <label>Available to Speak - True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Outreach_isNull</name>
+        <label>Outreach isNull?</label>
+        <locationX>325</locationX>
+        <locationY>1118</locationY>
+        <defaultConnector>
+            <targetReference>Outreach_Owner_and_Status</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Outreach_isNull_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Program_Outreach_Get_Record</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>No_More_Program_Outreaches</targetReference>
+            </connector>
+            <label>Outreach isNull - True</label>
         </rules>
     </decisions>
     <description>The main script flow that agents or translators use on Program or Program Script record. Set MODE to EDIT or RUN depending on which experience desired</description>
@@ -63,6 +171,11 @@
         <picklistField>Region__c</picklistField>
         <picklistObject>Program_Outreach__c</picklistObject>
     </dynamicChoiceSets>
+    <formulas>
+        <name>CurrentUser</name>
+        <dataType>String</dataType>
+        <expression>{!$User.Id}</expression>
+    </formulas>
     <interviewLabel>POP: Screen: Script {!$Flow.CurrentDateTime}</interviewLabel>
     <label>POP: Screen: Script</label>
     <processMetadataValues>
@@ -87,7 +200,7 @@
     <recordLookups>
         <name>Program_GetRecord</name>
         <label>Program GetRecord</label>
-        <locationX>50</locationX>
+        <locationX>325</locationX>
         <locationY>398</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -106,11 +219,35 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Program_Outreach_Get_Record</name>
+        <label>Program Outreach Get Record</label>
+        <locationX>325</locationX>
+        <locationY>998</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Outreach_isNull</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Program__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Program_GetRecord.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Program_Outreach__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>ProgramScript_GetRecord</name>
         <label>ProgramScript GetRecord</label>
-        <locationX>50</locationX>
+        <locationX>325</locationX>
         <locationY>758</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Outreach_Warning_Screen</targetReference>
+        </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Program__c</field>
@@ -130,10 +267,84 @@
         <object>Program_Script__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordUpdates>
+        <name>Outreach_Record_Owner_Update</name>
+        <label>Outreach Record Owner Update</label>
+        <locationX>600</locationX>
+        <locationY>1358</locationY>
+        <connector>
+            <targetReference>Outreach_Info</targetReference>
+        </connector>
+        <inputReference>Program_Outreach_Get_Record</inputReference>
+    </recordUpdates>
+    <screens>
+        <name>No_More_Program_Outreaches</name>
+        <label>No More Program Outreaches</label>
+        <locationX>50</locationX>
+        <locationY>1238</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Outreach_Answered</name>
+        <label>Outreach Answered</label>
+        <locationX>446</locationX>
+        <locationY>1718</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Outreach_Available_to_Speak</targetReference>
+        </connector>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Outreach_Hello</name>
+        <label>Outreach Hello</label>
+        <locationX>314</locationX>
+        <locationY>2078</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Outreach_Info</name>
+        <label>Outreach Info</label>
+        <locationX>600</locationX>
+        <locationY>1478</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Outreach_Answer</targetReference>
+        </connector>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Outreach_Warning_Screen</name>
+        <label>Outreach Warning Screen</label>
+        <locationX>325</locationX>
+        <locationY>878</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Program_Outreach_Get_Record</targetReference>
+        </connector>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
     <screens>
         <name>OutreachOptions_Screen</name>
         <label>OutreachOptions Screen</label>
-        <locationX>50</locationX>
+        <locationX>325</locationX>
         <locationY>518</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -202,17 +413,17 @@
         <showHeader>false</showHeader>
     </screens>
     <start>
-        <locationX>56</locationX>
+        <locationX>501</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>CanRunScript_Subflow</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <subflows>
         <name>CanRunScript_Subflow</name>
         <label>CanRunScript Subflow</label>
-        <locationX>182</locationX>
+        <locationX>627</locationX>
         <locationY>158</locationY>
         <connector>
             <targetReference>CanRunScript_Decision</targetReference>
@@ -220,6 +431,13 @@
         <flowName>POP_Screen_Can_Run_Script</flowName>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </subflows>
+    <variables>
+        <name>dummy</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
     <variables>
         <name>IS_TEST</name>
         <dataType>Boolean</dataType>

@@ -30,7 +30,7 @@
         <locationY>158</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>ScreenScript_Subflow</targetReference>
+            <targetReference>MainScript_Subflow</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -53,11 +53,11 @@
     </start>
     <status>Active</status>
     <subflows>
-        <name>ScreenScript_Subflow</name>
-        <label>ScreenScript Subflow</label>
+        <name>MainScript_Subflow</name>
+        <label>MainScript Subflow</label>
         <locationX>176</locationX>
         <locationY>278</locationY>
-        <flowName>POP_Screen_Script</flowName>
+        <flowName>Program_Outreach_Main</flowName>
         <inputAssignments>
             <name>LANGUAGE</name>
             <value>
@@ -73,9 +73,16 @@
         <inputAssignments>
             <name>recordId</name>
             <value>
-                <elementReference>ProgramScript_GetRecord.Program__c</elementReference>
+                <elementReference>ProgramScript_GetRecord.Program__r.Id</elementReference>
             </value>
         </inputAssignments>
+        <inputAssignments>
+            <name>vTranslateOutreachScriptID</name>
+            <value>
+                <elementReference>ProgramScript_GetRecord.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </subflows>
     <variables>
         <name>recordId</name>
