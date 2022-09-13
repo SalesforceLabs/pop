@@ -24,3 +24,9 @@ tasks:
     run_tests:
         options:
             required_org_code_coverage_percent: 90
+
+orgs:
+    scratch:
+        dev:
+            config_file: orgs/dev.json
+            days: 30
