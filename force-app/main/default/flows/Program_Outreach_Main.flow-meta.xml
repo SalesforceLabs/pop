@@ -1010,6 +1010,7 @@
         <fields>
             <name>Main_Menu_Section1</name>
             <fieldType>RegionContainer</fieldType>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
             <fields>
                 <name>Main_Menu_Section1_Column1</name>
                 <fieldType>Region</fieldType>
@@ -1147,6 +1148,7 @@
         <fields>
             <name>Pop_Member_Info_Section1</name>
             <fieldType>RegionContainer</fieldType>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
             <fields>
                 <name>Pop_Member_Info_Section1_Column1</name>
                 <fieldType>Region</fieldType>
@@ -1246,6 +1248,7 @@
         <fields>
             <name>Pop_Member_Info_Section2</name>
             <fieldType>RegionContainer</fieldType>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
             <fields>
                 <name>Pop_Member_Info_Section2_Column1</name>
                 <fieldType>Region</fieldType>
