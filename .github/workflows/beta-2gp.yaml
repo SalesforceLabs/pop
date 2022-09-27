@@ -1,8 +1,6 @@
 name: Upload Beta Release
 on:
-    push:
-        branches:
-            - "main"
+    workflow_dispatch:
 jobs:
     upload-beta:
         # Replace this URL with your forked repo.
