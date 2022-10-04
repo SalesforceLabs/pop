@@ -1,4 +1,4 @@
-name: Upload Beta Release
+name: Create Beta Release
 on:
     workflow_dispatch:
 jobs:
