@@ -6,7 +6,7 @@
     </applicationVisibilities>
     <customPermissions>
         <enabled>true</enabled>
-        <name>Can_Run_Script</name>
+        <name>Can_Run_Active_Script</name>
     </customPermissions>
     <fieldPermissions>
         <editable>true</editable>
