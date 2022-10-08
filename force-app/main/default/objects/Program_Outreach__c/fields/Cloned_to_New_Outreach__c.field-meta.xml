@@ -2,7 +2,9 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Cloned_to_New_Outreach__c</fullName>
     <defaultValue>false</defaultValue>
+    <description>Keeps track if an unconnected outreach was cloned to try outreach again.</description>
     <externalId>false</externalId>
+    <inlineHelpText>Keeps track if an unconnected outreach was cloned to try outreach again.</inlineHelpText>
     <label>Cloned to New Outreach</label>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>

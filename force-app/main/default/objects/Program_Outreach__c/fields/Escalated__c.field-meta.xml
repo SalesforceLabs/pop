@@ -2,7 +2,9 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Escalated__c</fullName>
     <defaultValue>false</defaultValue>
+    <description>Whether outreach should be escalated.</description>
     <externalId>false</externalId>
+    <inlineHelpText>Whether outreach should be escalated.</inlineHelpText>
     <label>Escalated</label>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>

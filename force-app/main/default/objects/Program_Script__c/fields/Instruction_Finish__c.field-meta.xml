@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Instruction_Finish__c</fullName>
+    <description>Instruction to agent at end of entire script.</description>
     <externalId>false</externalId>
+    <inlineHelpText>Instruction to agent at end of entire script.</inlineHelpText>
     <label>Instruction Finish</label>
     <length>32768</length>
     <trackHistory>false</trackHistory>

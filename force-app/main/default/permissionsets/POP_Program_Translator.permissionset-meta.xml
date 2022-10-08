@@ -10,12 +10,12 @@
     </customPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Program_Script__c.Instruction_Awareness__c</field>
+        <field>Program_Script__c.Instruction_Aware__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Program_Script__c.Instruction_Close_Did_Answer__c</field>
+        <field>Program_Script__c.Instruction_Close_Available__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

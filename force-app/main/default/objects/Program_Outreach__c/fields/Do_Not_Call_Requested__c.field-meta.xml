@@ -2,7 +2,9 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Do_Not_Call_Requested__c</fullName>
     <defaultValue>false</defaultValue>
+    <description>Whether outreach requested do not call.</description>
     <externalId>false</externalId>
+    <inlineHelpText>Whether outreach requested do not call.</inlineHelpText>
     <label>Do Not Call Requested</label>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>

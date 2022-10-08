@@ -2,7 +2,9 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>First_Name__c</fullName>
     <defaultValue>&quot;AUTOFILLED FROM CONTACT&quot;</defaultValue>
+    <description>First name of contact which is automatically set.</description>
     <externalId>false</externalId>
+    <inlineHelpText>First name of contact which is automatically set.</inlineHelpText>
     <label>First Name</label>
     <length>40</length>
     <required>true</required>

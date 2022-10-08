@@ -2,7 +2,9 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Phone__c</fullName>
     <defaultValue>&quot;AUTOFILLED FROM CONTACT&quot;</defaultValue>
+    <description>Phone of contact which is automatically set.</description>
     <externalId>false</externalId>
+    <inlineHelpText>Phone of contact which is automatically set.</inlineHelpText>
     <label>Phone</label>
     <required>true</required>
     <trackHistory>false</trackHistory>

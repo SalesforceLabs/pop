@@ -189,7 +189,7 @@
         <name>OutreachUpdateNotAvailable_Assignment</name>
         <label>OutreachUpdateNotAvailable Assignment</label>
         <locationX>1095</locationX>
-        <locationY>4082</locationY>
+        <locationY>4202</locationY>
         <assignmentItems>
             <assignToReference>ProgramOutreach_GetRecord.Comments__c</assignToReference>
             <operator>Assign</operator>
@@ -599,8 +599,7 @@
         <locationX>710</locationX>
         <locationY>3470</locationY>
         <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>SelectLanguageRegion_Screen</targetReference>
+            <targetReference>Finish_Screen</targetReference>
         </connector>
         <inputReference>ProgramOutreach_GetRecord</inputReference>
     </recordUpdates>
@@ -643,7 +642,7 @@
         </connector>
         <fields>
             <name>InstructionCloseAnswer_Text</name>
-            <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Instruction_Close_Did_Answer__c}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Instruction_Close_Available__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
@@ -700,7 +699,7 @@
         <name>CloseNotAvailable_Screen</name>
         <label>CloseNotAvailable Screen</label>
         <locationX>1095</locationX>
-        <locationY>3962</locationY>
+        <locationY>4082</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -795,6 +794,26 @@
         <fields>
             <name>TalkTrackEmailDeclined_Text</name>
             <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Talk_Track_Email_Declined__c}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Finish_Screen</name>
+        <label>Finish Screen</label>
+        <locationX>710</locationX>
+        <locationY>3590</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>SelectLanguageRegion_Screen</targetReference>
+        </connector>
+        <fields>
+            <name>InstructionFinish_DisplayText</name>
+            <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Instruction_Finish__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -1080,6 +1099,11 @@
             <targetReference>SendEmailConnected_Decision</targetReference>
         </connector>
         <fields>
+            <name>InstructionAware_DisplayText</name>
+            <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Instruction_Aware__c}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
             <name>TalkTrackAware_Text</name>
             <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Talk_Track_Outreach_Aware__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
@@ -1254,7 +1278,7 @@
         <name>OutreachNotAvailable_Screen</name>
         <label>OutreachNotAvailable Screen</label>
         <locationX>1095</locationX>
-        <locationY>3842</locationY>
+        <locationY>3962</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>

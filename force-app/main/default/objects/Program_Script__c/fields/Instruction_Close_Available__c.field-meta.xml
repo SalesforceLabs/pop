@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Instruction_Close_Did_Answer__c</fullName>
+    <fullName>Instruction_Close_Available__c</fullName>
+    <description>Instruction for agent when closing outreach that was available.</description>
     <externalId>false</externalId>
-    <label>Instruction: Close Did Answer</label>
+    <inlineHelpText>Instruction for agent when closing outreach that was available.</inlineHelpText>
+    <label>Instruction: Close Available</label>
     <length>32768</length>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>

@@ -53,15 +53,15 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>Instruction_Awareness__c</field>
+            <field>Instruction_Aware__c</field>
             <value>
                 <elementReference>Instruction_Awareness</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>Instruction_Close_Did_Answer__c</field>
+            <field>Instruction_Close_Available__c</field>
             <value>
-                <elementReference>Instruction_Close_Did_Answer</elementReference>
+                <elementReference>Instruction_Close_Available</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -171,7 +171,7 @@
         <text>&lt;p&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;IF the conversation ends here and you don&apos;t get a &quot;Yes&quot; or &quot;No&quot;, select &quot;Previous&quot; and change &quot;Did the customer say yes?&quot; on the previous screen to &quot;No&quot;.&lt;/strong&gt;&lt;/p&gt;</text>
     </textTemplates>
     <textTemplates>
-        <name>Instruction_Close_Did_Answer</name>
+        <name>Instruction_Close_Available</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;&lt;strong style=&quot;font-size: 16px;&quot;&gt;Complete the fields below if applicable before proceeding.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 16px;&quot;&gt;Don&apos;t complete &quot;Overall Comments&quot; unless you select Yellow.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 16px;&quot;&gt;Don&apos;t complete &quot;Escalation Comments&quot; unless you select Red.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 16px;&quot;&gt;&lt;u&gt;Definitions for Customer Sentiment:&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(255, 0, 0); font-size: 16px;&quot;&gt;Red&lt;/strong&gt;&lt;span style=&quot;color: rgb(33, 33, 34); font-size: 16px;&quot;&gt;&amp;nbsp;- The customer is extremely upset about the changes and an Escalation is required (Keywords: Renewal, Sue, Lawyer, Illegal, Verbally Aggressive Language)&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(195, 190, 24); font-size: 16px;&quot;&gt;Yellow&lt;/strong&gt;&lt;span style=&quot;color: rgb(33, 33, 34); font-size: 16px;&quot;&gt;&amp;nbsp;- The customer is upset about the changes but no Escalation is required.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(28, 169, 33); font-size: 16px;&quot;&gt;Green&amp;nbsp;&lt;/strong&gt;&lt;strong style=&quot;font-size: 16px;&quot;&gt;-&amp;nbsp;&lt;/strong&gt;&lt;span style=&quot;color: rgb(33, 33, 34); font-size: 16px;&quot;&gt;The customer acknowledged the changes.&lt;/span&gt;&lt;/p&gt;</text>
     </textTemplates>

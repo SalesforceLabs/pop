@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Comments__c</fullName>
+    <description>Comments captured by agent for outreach.</description>
     <externalId>false</externalId>
+    <inlineHelpText>Comments captured by agent for outreach.</inlineHelpText>
     <label>Comments</label>
     <length>32768</length>
     <trackHistory>false</trackHistory>

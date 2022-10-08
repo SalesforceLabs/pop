@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Talk_Track_Email_Declined__c</fullName>
+    <description>Talk track for agent when outreach does not want an email.</description>
     <externalId>false</externalId>
+    <inlineHelpText>Talk track for agent when outreach does not want an email.</inlineHelpText>
     <label>Talk Track: Email Declined</label>
     <length>32768</length>
     <trackHistory>false</trackHistory>
