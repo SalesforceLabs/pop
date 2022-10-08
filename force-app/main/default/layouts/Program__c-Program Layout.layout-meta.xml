@@ -59,7 +59,7 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Langauge__c</fields>
+        <fields>Language__c</fields>
         <relatedList>Program_Script__c.Program__c</relatedList>
     </relatedLists>
     <relatedLists>
