@@ -136,7 +136,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Pop_Outreach_Closing_Record_Update</targetReference>
+            <targetReference>OutreachClose_UpdateRecord</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -218,34 +218,16 @@
         </assignmentItems>
         <connector>
             <isGoTo>true</isGoTo>
-            <targetReference>Pop_Outreach_Closing_Record_Update</targetReference>
+            <targetReference>OutreachClose_UpdateRecord</targetReference>
         </connector>
     </assignments>
-    <choices>
-        <name>cCreate</name>
-        <choiceText>Create New Script</choiceText>
-        <dataType>String</dataType>
-    </choices>
-    <choices>
-        <name>cEnglish</name>
-        <choiceText>English</choiceText>
-        <dataType>String</dataType>
-        <value>
-            <stringValue>English</stringValue>
-        </value>
-    </choices>
-    <choices>
-        <name>cUpdateExistingScript</name>
-        <choiceText>Update Existing Script</choiceText>
-        <dataType>String</dataType>
-    </choices>
     <decisions>
         <name>CanUserRun_Decision</name>
         <label>Can Current User Run This?</label>
         <locationX>817</locationX>
         <locationY>278</locationY>
         <defaultConnector>
-            <targetReference>User_Cannot_Run_Flow</targetReference>
+            <targetReference>CannotRunFlow_Screen</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Current User Cannot Run</defaultConnectorLabel>
         <rules>
@@ -391,7 +373,7 @@
     </decisions>
     <description>Main Program Outreach Flow</description>
     <dynamicChoiceSets>
-        <name>cLanguage</name>
+        <name>Langauge_PicklistChoiceSet</name>
         <dataType>Picklist</dataType>
         <displayField xsi:nil="true"/>
         <object xsi:nil="true"/>
@@ -399,7 +381,7 @@
         <picklistObject>Program_Script__c</picklistObject>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
-        <name>cRegion</name>
+        <name>Region_PicklistChoiceSet</name>
         <dataType>Picklist</dataType>
         <displayField xsi:nil="true"/>
         <object xsi:nil="true"/>
@@ -407,7 +389,7 @@
         <picklistObject>Program_Outreach__c</picklistObject>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
-        <name>cSentiment</name>
+        <name>Sentiment_PicklistChoiceSet</name>
         <dataType>Picklist</dataType>
         <displayField xsi:nil="true"/>
         <object xsi:nil="true"/>
@@ -415,27 +397,14 @@
         <picklistObject>Program_Outreach__c</picklistObject>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
-        <name>cUnableToConnectReason</name>
+        <name>UnconnectedReason_PicklistChoiceSet</name>
         <dataType>Picklist</dataType>
         <displayField xsi:nil="true"/>
         <object xsi:nil="true"/>
         <picklistField>Unconnected_Reason__c</picklistField>
         <picklistObject>Program_Outreach__c</picklistObject>
     </dynamicChoiceSets>
-    <dynamicChoiceSets>
-        <name>ScriptLanguage</name>
-        <dataType>Picklist</dataType>
-        <displayField xsi:nil="true"/>
-        <object xsi:nil="true"/>
-        <picklistField>Langauge__c</picklistField>
-        <picklistObject>Program_Script__c</picklistObject>
-    </dynamicChoiceSets>
     <environments>Default</environments>
-    <formulas>
-        <name>CurrentUserId_Formula</name>
-        <dataType>String</dataType>
-        <expression>{!$User.Id}</expression>
-    </formulas>
     <interviewLabel>Program Outreach: Main {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Program Outreach: Main</label>
     <processMetadataValues>
@@ -464,7 +433,7 @@
         <locationY>398</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Main_Menu</targetReference>
+            <targetReference>SelectLangaugeRegion_Screen</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -556,8 +525,8 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
-        <name>Pop_Outreach_Closing_Record_Update</name>
-        <label>Pop Outreach Closing Record Update</label>
+        <name>OutreachClose_UpdateRecord</name>
+        <label>OutreachClose UpdateRecord</label>
         <locationX>446</locationX>
         <locationY>3230</locationY>
         <inputReference>ProgramOutreach_GetRecord</inputReference>
@@ -573,6 +542,22 @@
         <inputReference>ProgramOutreach_GetRecord</inputReference>
     </recordUpdates>
     <screens>
+        <name>CannotRunFlow_Screen</name>
+        <label>CannotRunFlow Screen</label>
+        <locationX>1194</locationX>
+        <locationY>398</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>CannotRun_Text</name>
+            <fieldText>&lt;p&gt;You cannot run this script.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
         <name>CloseAvailable_Screen</name>
         <label>CloseAvailable Screen</label>
         <locationX>446</locationX>
@@ -584,13 +569,13 @@
             <targetReference>OutreachUpdateAvailable_Assignment</targetReference>
         </connector>
         <fields>
-            <name>closing_text</name>
+            <name>InstructionCloseAnswer_Text</name>
             <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Instruction_Close_Did_Answer__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
             <name>SentimentAvailable_Picklist</name>
-            <choiceReferences>cSentiment</choiceReferences>
+            <choiceReferences>Sentiment_PicklistChoiceSet</choiceReferences>
             <dataType>String</dataType>
             <fieldText>Outreach Sentiment</fieldText>
             <fieldType>DropdownBox</fieldType>
@@ -639,7 +624,7 @@
         </fields>
         <fields>
             <name>UnconnectedReasonNotAvailable_Picklist</name>
-            <choiceReferences>cUnableToConnectReason</choiceReferences>
+            <choiceReferences>UnconnectedReason_PicklistChoiceSet</choiceReferences>
             <dataType>String</dataType>
             <fieldText>Unconnected Reason:</fieldText>
             <fieldType>DropdownBox</fieldType>
@@ -682,7 +667,7 @@
             <targetReference>CloseAvailable_Screen</targetReference>
         </connector>
         <fields>
-            <name>Great_Text</name>
+            <name>TalkTrackEmailAccepted_Text</name>
             <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Talk_Track_Email_Accepted__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
@@ -701,7 +686,7 @@
             <targetReference>CloseAvailable_Screen</targetReference>
         </connector>
         <fields>
-            <name>thankyou_text</name>
+            <name>TalkTrackEmailDeclined_Text</name>
             <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Talk_Track_Email_Declined__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
@@ -818,58 +803,6 @@
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
-    </screens>
-    <screens>
-        <name>Main_Menu</name>
-        <label>Main Menu</label>
-        <locationX>440</locationX>
-        <locationY>518</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
-        <connector>
-            <targetReference>ProgramScript_GetRecord</targetReference>
-        </connector>
-        <fields>
-            <name>Main_Menu_Section1</name>
-            <fieldType>RegionContainer</fieldType>
-            <fields>
-                <name>Main_Menu_Section1_Column1</name>
-                <fieldType>Region</fieldType>
-                <fields>
-                    <name>MainSection1</name>
-                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 16px;&quot;&gt;Proactive Outreach Program&lt;/strong&gt;&lt;/p&gt;</fieldText>
-                    <fieldType>DisplayText</fieldType>
-                </fields>
-                <fields>
-                    <name>LanguageSelect_Picklist</name>
-                    <choiceReferences>ScriptLanguage</choiceReferences>
-                    <dataType>String</dataType>
-                    <fieldText>Select a Language:</fieldText>
-                    <fieldType>DropdownBox</fieldType>
-                    <isRequired>true</isRequired>
-                </fields>
-                <fields>
-                    <name>RegionSelect_Picklist</name>
-                    <choiceReferences>cRegion</choiceReferences>
-                    <dataType>String</dataType>
-                    <fieldText>Select a Region</fieldText>
-                    <fieldType>DropdownBox</fieldType>
-                    <isRequired>false</isRequired>
-                </fields>
-                <inputParameters>
-                    <name>width</name>
-                    <value>
-                        <stringValue>12</stringValue>
-                    </value>
-                </inputParameters>
-                <isRequired>false</isRequired>
-            </fields>
-            <isRequired>false</isRequired>
-            <regionContainerType>SectionWithoutHeader</regionContainerType>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
     </screens>
     <screens>
         <name>NoMoreOutreach_Screen</name>
@@ -1016,7 +949,7 @@
             <targetReference>SendEmailConnected_Decision</targetReference>
         </connector>
         <fields>
-            <name>aware_text</name>
+            <name>TalkTrackAware_Text</name>
             <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Talk_Track_Outreach_Aware__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
@@ -1067,7 +1000,7 @@
             <targetReference>OutreachAnswer_Decision</targetReference>
         </connector>
         <fields>
-            <name>InstructionCallCustomer_DisplayText</name>
+            <name>InstructionMakeOutreach_DisplayText</name>
             <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Instruction_Make_Outreach__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
@@ -1217,7 +1150,7 @@
             <targetReference>SendEmailConnected_Decision</targetReference>
         </connector>
         <fields>
-            <name>not_aware_text</name>
+            <name>TalkTrackNotAware_Text</name>
             <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Talk_Track_Outreach_Not_Aware__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
@@ -1276,17 +1209,48 @@
         <showHeader>false</showHeader>
     </screens>
     <screens>
-        <name>User_Cannot_Run_Flow</name>
-        <label>User Cannot Run Flow</label>
-        <locationX>1194</locationX>
-        <locationY>398</locationY>
+        <name>SelectLangaugeRegion_Screen</name>
+        <label>SelectLangaugeRegion Screen</label>
+        <locationX>440</locationX>
+        <locationY>518</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
+        <connector>
+            <targetReference>ProgramScript_GetRecord</targetReference>
+        </connector>
         <fields>
-            <name>Cannot_Run</name>
-            <fieldText>&lt;p&gt;You cannot run flow&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
+            <name>SelectLangaugeRegion_Screen_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>SelectLangaugeRegion_Screen_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>LanguageSelect_Picklist</name>
+                    <choiceReferences>Langauge_PicklistChoiceSet</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Select a Language:</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>RegionSelect_Picklist</name>
+                    <choiceReferences>Region_PicklistChoiceSet</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Select a Region</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <isRequired>false</isRequired>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
@@ -1310,23 +1274,6 @@
         <flowName>POP_Screen_Can_Run_Script</flowName>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </subflows>
-    <variables>
-        <name>dummy</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>isVoicemail</name>
-        <dataType>Boolean</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <booleanValue>false</booleanValue>
-        </value>
-    </variables>
     <variables>
         <name>LANGUAGE</name>
         <dataType>Picklist</dataType>
@@ -1357,19 +1304,5 @@
         <value>
             <booleanValue>false</booleanValue>
         </value>
-    </variables>
-    <variables>
-        <name>vProgramId</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>true</isOutput>
-    </variables>
-    <variables>
-        <name>vTranslateOutreachScriptID</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
     </variables>
 </Flow>
