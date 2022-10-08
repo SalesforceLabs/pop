@@ -218,18 +218,6 @@
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Bad_Incorrect_Phone__c</fieldItem>
-                <identifier>RecordBad_Incorrect_Phone_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldItem>Record.No_Longer_With_Company__c</fieldItem>
-                <identifier>RecordNo_Longer_With_Company_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
                 <fieldItem>Record.Escalated__c</fieldItem>
                 <identifier>RecordEscalated_cField</identifier>
             </fieldInstance>

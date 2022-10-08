@@ -134,7 +134,7 @@
             <assignToReference>ProgramOutreach_GetRecord.Escalation_Comments__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>EscalationRequiredAvailable_Text</elementReference>
+                <elementReference>EscalationCommentsAvailable_Text</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -156,6 +156,13 @@
             <operator>Assign</operator>
             <value>
                 <stringValue>Connected</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ProgramOutreach_GetRecord.Escalated__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>EscalateAvailable_Checkbox</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -233,10 +240,10 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>SendEmail_Boolean</assignToReference>
+            <assignToReference>ProgramOutreach_GetRecord.Escalated__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <booleanValue>true</booleanValue>
+                <elementReference>EscalateNotAvailable_Checkbox</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -405,9 +412,16 @@
         <defaultConnectorLabel>Do Not Send Email</defaultConnectorLabel>
         <rules>
             <name>OutcomeIs_SendEmailConnected</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
-                <leftValueReference>SendEmail_Boolean</leftValueReference>
+                <leftValueReference>NotAware_SendEmail_Toggle.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Aware_SendEmail_Toggle.value</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -647,12 +661,6 @@
             <isRequired>false</isRequired>
         </fields>
         <fields>
-            <name>EscalationRequiredAvailable_Text</name>
-            <fieldText>Escalation Required</fieldText>
-            <fieldType>LargeTextArea</fieldType>
-            <isRequired>false</isRequired>
-        </fields>
-        <fields>
             <name>DoNotCallAvailable_Checkbox</name>
             <dataType>Boolean</dataType>
             <defaultValue>
@@ -661,6 +669,29 @@
             <fieldText>Do Not Call Requested</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>EscalateAvailable_Checkbox</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Escalate</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>EscalationCommentsAvailable_Text</name>
+            <fieldText>Escalation Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>false</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>EscalateAvailable_Checkbox</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
@@ -690,6 +721,12 @@
             <isRequired>true</isRequired>
         </fields>
         <fields>
+            <name>CommentsNotAvailable_Text</name>
+            <fieldText>Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
             <name>DoNotCallNotAvailable_Checkbox</name>
             <dataType>Boolean</dataType>
             <defaultValue>
@@ -700,16 +737,27 @@
             <isRequired>true</isRequired>
         </fields>
         <fields>
-            <name>CommentsNotAvailable_Text</name>
-            <fieldText>Comments</fieldText>
-            <fieldType>LargeTextArea</fieldType>
-            <isRequired>false</isRequired>
+            <name>EscalateNotAvailable_Checkbox</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Escalate</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
         </fields>
         <fields>
             <name>EscalationCommentsNotAvailable_Text</name>
             <fieldText>Escalation Comments</fieldText>
             <fieldType>LargeTextArea</fieldType>
             <isRequired>false</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>EscalateNotAvailable_Checkbox</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
@@ -1388,16 +1436,6 @@
         <isOutput>false</isOutput>
         <value>
             <stringValue>AMER</stringValue>
-        </value>
-    </variables>
-    <variables>
-        <name>SendEmail_Boolean</name>
-        <dataType>Boolean</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <booleanValue>false</booleanValue>
         </value>
     </variables>
 </Flow>

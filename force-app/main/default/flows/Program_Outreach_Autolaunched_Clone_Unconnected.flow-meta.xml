@@ -112,6 +112,7 @@
         </sortOptions>
     </collectionProcessors>
     <description>Autolaunched Flow that will clone any outreach that is marked unconnected with a valid reasons for cloning. Since this is limited to 5k records, it keeps track of which ones were cloned if needed to run multiple times.</description>
+    <environments>Default</environments>
     <interviewLabel>Program Outreach: Autolaunched: Clone Unconnected {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Program Outreach: Autolaunched: Clone Unconnected</label>
     <loops>
@@ -166,7 +167,7 @@
         <connector>
             <targetReference>ProgramOutreach_CollectionSort</targetReference>
         </connector>
-        <filterLogic>1 AND 2 AND 3 AND 4 AND (5 OR 6 OR 7 OR 8) AND 9</filterLogic>
+        <filterLogic>1 AND 2 AND 3 AND (4 OR 5 OR 6 OR 7) AND 8</filterLogic>
         <filters>
             <field>Status__c</field>
             <operator>EqualTo</operator>
@@ -179,13 +180,6 @@
             <operator>EqualTo</operator>
             <value>
                 <stringValue>Unconnected</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Bad_Incorrect_Phone__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>false</booleanValue>
             </value>
         </filters>
         <filters>

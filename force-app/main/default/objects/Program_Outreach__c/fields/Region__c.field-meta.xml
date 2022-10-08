@@ -26,6 +26,11 @@
                 <default>false</default>
                 <label>APAC</label>
             </value>
+            <value>
+                <fullName>TEST</fullName>
+                <default>false</default>
+                <label>TEST</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
