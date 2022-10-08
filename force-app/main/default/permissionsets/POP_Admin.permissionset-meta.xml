@@ -10,6 +10,10 @@
     </customPermissions>
     <customPermissions>
         <enabled>true</enabled>
+        <name>Can_Create_Default_Script</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
         <name>Can_Run_Script</name>
     </customPermissions>
     <customPermissions>
@@ -136,17 +140,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Program_Script__c.Instruction_Call_Customer__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Program_Script__c.Instruction_Close_Did_Answer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Program_Script__c.Instruction_Close_Out_Did_Not_Answer__c</field>
+        <field>Program_Script__c.Instruction_Close_Not_Available__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -156,32 +155,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Program_Script__c.Instruction_No_More_Calls__c</field>
+        <field>Program_Script__c.Instruction_Make_Outreach__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Program_Script__c.Instruction_Until_Read_To_Call__c</field>
+        <field>Program_Script__c.Instruction_No_More_Outreach__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Program_Script__c.Talk_Track_Customer_Answered__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Program_Script__c.Talk_Track_Customer_Did_Not_Answer__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Program_Script__c.Talk_Track_Customer_Is_Aware__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Program_Script__c.Talk_Track_Customer_Is_Not_Aware__c</field>
+        <field>Program_Script__c.Instruction_Until_Ready_To_Call__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -196,12 +180,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Program_Script__c.Talk_Track_Hello_And_Conversation_Ends__c</field>
+        <field>Program_Script__c.Talk_Track_Hello__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Program_Script__c.Talk_Track_Hello__c</field>
+        <field>Program_Script__c.Talk_Track_Outreach_Answered__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Program_Script__c.Talk_Track_Outreach_Aware__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Program_Script__c.Talk_Track_Outreach_Not_Available__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Program_Script__c.Talk_Track_Outreach_Not_Aware__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -19,6 +19,9 @@
                         <valueListItems>
                             <value>Share</value>
                         </valueListItems>
+                        <valueListItems>
+                            <value>Program__c.Create_Default_Script</value>
+                        </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
