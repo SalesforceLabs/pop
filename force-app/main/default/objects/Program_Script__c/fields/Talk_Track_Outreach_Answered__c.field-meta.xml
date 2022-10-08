@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Talk_Track_Customer_Is_Not_Aware__c</fullName>
+    <fullName>Talk_Track_Outreach_Answered__c</fullName>
+    <description>What the agent should say if outreach was answered.</description>
     <externalId>false</externalId>
-    <label>Talk Track: Customer Is Not Aware</label>
+    <inlineHelpText>What the agent should say if outreach was answered.</inlineHelpText>
+    <label>Talk Track: Outreach Answered</label>
     <length>32768</length>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>

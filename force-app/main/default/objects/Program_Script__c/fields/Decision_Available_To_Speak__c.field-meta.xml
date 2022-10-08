@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Decision_Aware_of_Campaign__c</fullName>
+    <fullName>Decision_Available_To_Speak__c</fullName>
+    <description>Decision label for being able to speak with person making outreach to.</description>
     <externalId>false</externalId>
-    <label>Decision: Aware of Campaign</label>
+    <inlineHelpText>Decision label for being able to speak with person making outreach to.</inlineHelpText>
+    <label>Decision: Available To Speak</label>
     <length>255</length>
     <required>false</required>
     <trackHistory>false</trackHistory>

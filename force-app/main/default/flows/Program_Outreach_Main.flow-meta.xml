@@ -2,136 +2,137 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <apiVersion>55.0</apiVersion>
     <assignments>
-        <name>Accepted_Email</name>
-        <label>Accepted Email</label>
-        <locationX>446</locationX>
+        <name>EmailAccepted_Assignment</name>
+        <label>EmailAccepted Assignment</label>
+        <locationX>314</locationX>
         <locationY>2654</locationY>
         <assignmentItems>
-            <assignToReference>Program_Outreach.Email_Status__c</assignToReference>
+            <assignToReference>ProgramOutreach_GetRecord.Email_Status__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <stringValue>Sent</stringValue>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Great_Script</targetReference>
+            <targetReference>EmailAccepted_Screen</targetReference>
         </connector>
     </assignments>
     <assignments>
-        <name>Comments_Did_Not_Answer</name>
-        <label>Comments - Did Not Answer</label>
-        <locationX>1106</locationX>
-        <locationY>2318</locationY>
-        <assignmentItems>
-            <assignToReference>Program_Outreach.Comments__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>CommentsDidNotAnswer</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>Program_Outreach.Escalation_Comments__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Escalation_Comments_DidNotAnswer</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>Program_Outreach.Do_Not_Call_Requested__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Do_Not_Call_Requested</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>Program_Outreach.Email_Status__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>Sent</stringValue>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>Program_Outreach.Unconnected_Reason__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Unable_To_Connect_Reason</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Pop_Outreach_Closing_Record_Update</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Contact_Owner_And_Status</name>
-        <label>Contact Owner And Status</label>
-        <locationX>1106</locationX>
-        <locationY>1118</locationY>
-        <assignmentItems>
-            <assignToReference>Program_Outreach.Status__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>In Progress</stringValue>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>Program_Outreach.Assigned_To__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>fCurrentUserId</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Update_Pop_Outreach_Record_Owner</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Declined_Email</name>
-        <label>Declined Email</label>
-        <locationX>710</locationX>
+        <name>EmailDeclined_Assignment</name>
+        <label>EmailDeclined Assignment</label>
+        <locationX>578</locationX>
         <locationY>2654</locationY>
         <assignmentItems>
-            <assignToReference>Program_Outreach.Email_Status__c</assignToReference>
+            <assignToReference>ProgramOutreach_GetRecord.Email_Status__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <stringValue>Not Sent-Declined</stringValue>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Thank_You_Script</targetReference>
+            <targetReference>EmailDeclined_Screen</targetReference>
         </connector>
     </assignments>
     <assignments>
-        <name>Pop_Member_Closing</name>
-        <label>Pop Member Closing</label>
+        <name>OutreachAware_Assignment</name>
+        <label>OutreachAware Assignment</label>
+        <locationX>314</locationX>
+        <locationY>2198</locationY>
+        <assignmentItems>
+            <assignToReference>ProgramOutreach_GetRecord.Awareness__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Aware</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>OutreachAware_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>OutreachNotAware_Assignment</name>
+        <label>OutreachNotAware Assignment</label>
         <locationX>578</locationX>
+        <locationY>2198</locationY>
+        <assignmentItems>
+            <assignToReference>ProgramOutreach_GetRecord.Awareness__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Not Aware</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>OutreachNotAware_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>OutreachOwner_Assignment</name>
+        <label>OutreachOwner Assignment</label>
+        <locationX>831</locationX>
+        <locationY>1118</locationY>
+        <assignmentItems>
+            <assignToReference>ProgramOutreach_GetRecord.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>In Progress</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ProgramOutreach_GetRecord.Assigned_To__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>ProgramOutreachOwner_UpdateRecord</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>OutreachUpdateAvailable_Assignment</name>
+        <label>OutreachUpdateAvailable Assignment</label>
+        <locationX>446</locationX>
         <locationY>3110</locationY>
         <assignmentItems>
-            <assignToReference>Program_Outreach.Sentiment__c</assignToReference>
+            <assignToReference>ProgramOutreach_GetRecord.Sentiment__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Outreach_Sentiment</elementReference>
+                <elementReference>SentimentAvailable_Picklist</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>Program_Outreach.Comments__c</assignToReference>
+            <assignToReference>ProgramOutreach_GetRecord.Comments__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Comments</elementReference>
+                <elementReference>CommentsAvailable_Text</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>Program_Outreach.Escalation_Comments__c</assignToReference>
+            <assignToReference>ProgramOutreach_GetRecord.Escalation_Comments__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Escalation_Required</elementReference>
+                <elementReference>EscalationRequiredAvailable_Text</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>Program_Outreach.Do_Not_Call_Requested__c</assignToReference>
+            <assignToReference>ProgramOutreach_GetRecord.Do_Not_Call_Requested__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Do_Not_Call_Requested_Checkbox</elementReference>
+                <elementReference>DoNotCallAvailable_Checkbox</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ProgramOutreach_GetRecord.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ProgramOutreach_GetRecord.Status_Reason__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Connected</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -139,148 +140,85 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Pop_Outreach_Aware</name>
-        <label>Pop Outreach Aware</label>
+        <name>OutreachUpdateConnected_Assignment</name>
+        <label>OutreachUpdateConnected Assignment</label>
         <locationX>446</locationX>
-        <locationY>2198</locationY>
-        <assignmentItems>
-            <assignToReference>Program_Outreach.Awareness__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>Aware</stringValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Aware_Script</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Pop_Outreach_Not_Aware</name>
-        <label>Pop Outreach Not Aware</label>
-        <locationX>710</locationX>
-        <locationY>2198</locationY>
-        <assignmentItems>
-            <assignToReference>Program_Outreach.Awareness__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>Not Aware</stringValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Not_Aware_Script</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Pop_Outreach_Status_Change</name>
-        <label>Pop Outreach Status Change</label>
-        <locationX>578</locationX>
         <locationY>1838</locationY>
         <assignmentItems>
-            <assignToReference>Program_Outreach.Status__c</assignToReference>
+            <assignToReference>ProgramOutreach_GetRecord.Status__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <stringValue>Closed-Connected</stringValue>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Hello_Script</targetReference>
+            <targetReference>Hello_Screen</targetReference>
         </connector>
     </assignments>
     <assignments>
-        <name>Pop_Outreach_Status_Voicemail</name>
-        <label>Pop Outreach Status - Voicemail</label>
-        <locationX>1106</locationX>
-        <locationY>1958</locationY>
+        <name>OutreachUpdateNotAvailable_Assignment</name>
+        <label>OutreachUpdateNotAvailable Assignment</label>
+        <locationX>831</locationX>
+        <locationY>3902</locationY>
         <assignmentItems>
-            <assignToReference>isVoicemail</assignToReference>
+            <assignToReference>ProgramOutreach_GetRecord.Comments__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <booleanValue>true</booleanValue>
+                <elementReference>CommentsNotAvailable_Text</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>Program_Outreach.Status__c</assignToReference>
+            <assignToReference>ProgramOutreach_GetRecord.Escalation_Comments__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>EscalationCommentsNotAvailable_Text</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ProgramOutreach_GetRecord.Do_Not_Call_Requested__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>DoNotCallNotAvailable_Checkbox</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ProgramOutreach_GetRecord.Email_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Sent</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ProgramOutreach_GetRecord.Unconnected_Reason__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>UnconnectedReasonNotAvailable_Picklist</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ProgramOutreach_GetRecord.Status__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <stringValue>Closed</stringValue>
             </value>
         </assignmentItems>
-        <connector>
-            <targetReference>Send_Voicemail_Email</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Send_Voicemail_Email</name>
-        <label>Send Voicemail Email</label>
-        <locationX>1106</locationX>
-        <locationY>2078</locationY>
+        <assignmentItems>
+            <assignToReference>ProgramOutreach_GetRecord.Status_Reason__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Unconnected</stringValue>
+            </value>
+        </assignmentItems>
         <assignmentItems>
             <assignToReference>SendEmail_Boolean</assignToReference>
             <operator>Assign</operator>
             <value>
-                <booleanValue>false</booleanValue>
+                <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Closing_Did_Not_Answer</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Translate_Script_Assignments</name>
-        <label>Translate Script Assignments</label>
-        <locationX>578</locationX>
-        <locationY>3590</locationY>
-        <assignmentItems>
-            <assignToReference>Program_Script_Translate.Talk_Track_Hello__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Translate_Talk_Track_Hello</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>Program_Script_Translate.Talk_Track_Customer_Answered__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Translate_Talk_Track_Customer_Answered</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>Program_Script_Translate.Talk_Track_Customer_Did_Not_Answer__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Translate_Talk_Track_Customer_Did_Not_Answer</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>Program_Script_Translate.Talk_Track_Customer_Is_Aware__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Translate_Talk_Track_Customer_Is_Aware</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>Program_Script_Translate.Talk_Track_Customer_Is_Not_Aware__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Translate_Talk_Track_Customer_Is_Not_Aware</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>Program_Script_Translate.Talk_Track_Email_Accepted__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Translate_Talk_Track_Email_Accepted</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>Program_Script_Translate.Talk_Track_Email_Declined__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Translate_Talk_Track_Email_Declined</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Program_Script_Update</targetReference>
+            <isGoTo>true</isGoTo>
+            <targetReference>Pop_Outreach_Closing_Record_Update</targetReference>
         </connector>
     </assignments>
     <choices>
@@ -302,186 +240,16 @@
         <dataType>String</dataType>
     </choices>
     <decisions>
-        <name>Contact_Is_Null</name>
-        <label>Contact Is Null?</label>
-        <locationX>578</locationX>
-        <locationY>998</locationY>
-        <defaultConnector>
-            <targetReference>Contact_Owner_And_Status</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>OutcomeIs_ContactIsNull</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Program_Outreach</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>No_More_Pop_Outreach</targetReference>
-            </connector>
-            <label>OutcomeIs ContactIsNull</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Email_Send_Do_Not_Send</name>
-        <label>Email Send/Do Not Send</label>
-        <locationX>578</locationX>
-        <locationY>3350</locationY>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Send_Email</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Send_Email</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>MODE</leftValueReference>
-                <operator>NotEqualTo</operator>
-                <rightValue>
-                    <stringValue>EDIT</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Subflow_Program_Outreach_Email</targetReference>
-            </connector>
-            <label>Send Email</label>
-        </rules>
-        <rules>
-            <name>MODE_Edit</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>MODE</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>EDIT</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Program_Script_Translate</targetReference>
-            </connector>
-            <label>MODE = Edit</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Is_Pop_Outreach_Aware</name>
-        <label>Is Pop Outreach Aware?</label>
-        <locationX>578</locationX>
-        <locationY>2078</locationY>
-        <defaultConnector>
-            <targetReference>Pop_Outreach_Not_Aware</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Aware_True</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>aware_toggle.value</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Pop_Outreach_Aware</targetReference>
-            </connector>
-            <label>Aware - True</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Pop_Outreach_Answer</name>
-        <label>Pop Outreach Answer</label>
-        <locationX>1106</locationX>
-        <locationY>1478</locationY>
-        <defaultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Pop_Outreach_Did_Not_Answer</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>PopOutreach_Answer_True</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Customer_Answere_Toggle.value</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Pop_Outreach_Answered</targetReference>
-            </connector>
-            <label>PopOutreach Answer - True</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Pop_Outreach_Available_to_Spreak</name>
-        <label>Pop Outreach Available to Spreak?</label>
-        <locationX>842</locationX>
-        <locationY>1718</locationY>
-        <defaultConnector>
-            <targetReference>Pop_Outreach_Did_Not_Answer</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Available_To_Speak_True</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Customer_Available_To_Speak.value</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Pop_Outreach_Status_Change</targetReference>
-            </connector>
-            <label>Available To Speak - True</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Send_Pop_Member_Email</name>
-        <label>Send Pop Member Email</label>
-        <locationX>578</locationX>
-        <locationY>2534</locationY>
-        <defaultConnector>
-            <targetReference>Declined_Email</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Send_Connected_With_Customer_Email</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>SendEmail_Boolean</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Accepted_Email</targetReference>
-            </connector>
-            <label>Send Connected With Customer Email</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>User_Validation</name>
-        <label>User Validation</label>
-        <locationX>1106</locationX>
+        <name>CanUserRun_Decision</name>
+        <label>Can Current User Run This?</label>
+        <locationX>817</locationX>
         <locationY>278</locationY>
         <defaultConnector>
             <targetReference>User_Cannot_Run_Flow</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <defaultConnectorLabel>Current User Cannot Run</defaultConnectorLabel>
         <rules>
-            <name>User_Can_Run_Script</name>
+            <name>OutcomeIs_UseCanRun</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>CanRunScript_Subflow.CAN_RUN_SCRIPT</leftValueReference>
@@ -491,9 +259,134 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Program</targetReference>
+                <targetReference>Program_GetRecord</targetReference>
             </connector>
-            <label>User Can Run Script</label>
+            <label>Current User Can Run</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>ContactIsNull_Decision</name>
+        <label>Was a Contact Found?</label>
+        <locationX>440</locationX>
+        <locationY>998</locationY>
+        <defaultConnector>
+            <targetReference>OutreachOwner_Assignment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Contact Found</defaultConnectorLabel>
+        <rules>
+            <name>OutcomeIs_ContactIsNull</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ProgramOutreach_GetRecord</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>NoMoreOutreach_Screen</targetReference>
+            </connector>
+            <label>Contact Not Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>OutreachAnswer_Decision</name>
+        <label>Was Outreach Answered?</label>
+        <locationX>831</locationX>
+        <locationY>1478</locationY>
+        <defaultConnector>
+            <targetReference>OutreachNotAvailable_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Was Not Answered</defaultConnectorLabel>
+        <rules>
+            <name>OutcomeIs_OutreachAnswered</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>DidCustomerAnswer_Toggle.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OutreachAvailable_Screen</targetReference>
+            </connector>
+            <label>Was Answered</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>OutreachAvailble_Decision</name>
+        <label>Was Outreach Available?</label>
+        <locationX>644</locationX>
+        <locationY>1718</locationY>
+        <defaultConnector>
+            <targetReference>OutreachNotAvailable_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Outreach Was Not Available</defaultConnectorLabel>
+        <rules>
+            <name>OutcomeIs_OutreachAvailable</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>AvailableToSpeak_Toggle.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OutreachUpdateConnected_Assignment</targetReference>
+            </connector>
+            <label>Outreach Was Available</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>OutreachAware_Decision</name>
+        <label>Was Outreach Aware of Program?</label>
+        <locationX>446</locationX>
+        <locationY>2078</locationY>
+        <defaultConnector>
+            <targetReference>OutreachNotAware_Assignment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Was Not Aware</defaultConnectorLabel>
+        <rules>
+            <name>OutcomeIs_WasAware</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>AwareOfProgram_Toggle.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OutreachAware_Assignment</targetReference>
+            </connector>
+            <label>Was Aware</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>SendEmailConnected_Decision</name>
+        <label>SendEmailConnected Decision</label>
+        <locationX>446</locationX>
+        <locationY>2534</locationY>
+        <defaultConnector>
+            <targetReference>EmailDeclined_Assignment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Do Not Send Email</defaultConnectorLabel>
+        <rules>
+            <name>OutcomeIs_SendEmailConnected</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SendEmail_Boolean</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>EmailAccepted_Assignment</targetReference>
+            </connector>
+            <label>Send Email</label>
         </rules>
     </decisions>
     <description>Main Program Outreach Flow</description>
@@ -529,8 +422,17 @@
         <picklistField>Unconnected_Reason__c</picklistField>
         <picklistObject>Program_Outreach__c</picklistObject>
     </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>ScriptLanguage</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Langauge__c</picklistField>
+        <picklistObject>Program_Script__c</picklistObject>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
     <formulas>
-        <name>fCurrentUserId</name>
+        <name>CurrentUserId_Formula</name>
         <dataType>String</dataType>
         <expression>{!$User.Id}</expression>
     </formulas>
@@ -556,9 +458,9 @@
     </processMetadataValues>
     <processType>Flow</processType>
     <recordLookups>
-        <name>Program</name>
-        <label>Program</label>
-        <locationX>578</locationX>
+        <name>Program_GetRecord</name>
+        <label>Program GetRecord</label>
+        <locationX>440</locationX>
         <locationY>398</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -577,34 +479,34 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>Program_Outreach</name>
-        <label>Program Outreach</label>
-        <locationX>578</locationX>
+        <name>ProgramOutreach_GetRecord</name>
+        <label>ProgramOutreach GetRecord</label>
+        <locationX>440</locationX>
         <locationY>878</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Contact_Is_Null</targetReference>
+            <targetReference>ContactIsNull_Decision</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Program__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Program.Id</elementReference>
+                <elementReference>Program_GetRecord.Id</elementReference>
             </value>
         </filters>
         <filters>
             <field>Language__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Language_Select</elementReference>
+                <elementReference>LanguageSelect_Picklist</elementReference>
             </value>
         </filters>
         <filters>
             <field>Region__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Region_Select</elementReference>
+                <elementReference>RegionSelect_Picklist</elementReference>
             </value>
         </filters>
         <filters>
@@ -626,48 +528,27 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>Program_Script</name>
-        <label>Program Script</label>
-        <locationX>578</locationX>
+        <name>ProgramScript_GetRecord</name>
+        <label>ProgramScript GetRecord</label>
+        <locationX>440</locationX>
         <locationY>638</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Contact_Warning</targetReference>
+            <targetReference>ReadyToCall_Screen</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Program__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Program.Id</elementReference>
+                <elementReference>Program_GetRecord.Id</elementReference>
             </value>
         </filters>
         <filters>
             <field>Language__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Language_Select</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>Program_Script__c</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
-        <name>Program_Script_Translate</name>
-        <label>Program Script (Translate)</label>
-        <locationX>578</locationX>
-        <locationY>3470</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Translate_Script_Assignments</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>vTranslateOutreachScriptID</elementReference>
+                <elementReference>LanguageSelect_Picklist</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -677,167 +558,38 @@
     <recordUpdates>
         <name>Pop_Outreach_Closing_Record_Update</name>
         <label>Pop Outreach Closing Record Update</label>
-        <locationX>578</locationX>
+        <locationX>446</locationX>
         <locationY>3230</locationY>
-        <connector>
-            <targetReference>Email_Send_Do_Not_Send</targetReference>
-        </connector>
-        <inputReference>Program_Outreach</inputReference>
+        <inputReference>ProgramOutreach_GetRecord</inputReference>
     </recordUpdates>
     <recordUpdates>
-        <name>Program_Script_Update</name>
-        <label>Program Script Update</label>
-        <locationX>578</locationX>
-        <locationY>3710</locationY>
-        <inputReference>Program_Script_Translate</inputReference>
-    </recordUpdates>
-    <recordUpdates>
-        <name>Update_Pop_Outreach_Record_Owner</name>
-        <label>Update Pop Outreach Record Owner</label>
-        <locationX>1106</locationX>
+        <name>ProgramOutreachOwner_UpdateRecord</name>
+        <label>ProgramOutreachOwner UpdateRecord</label>
+        <locationX>831</locationX>
         <locationY>1238</locationY>
         <connector>
-            <targetReference>Pop_Member_Info</targetReference>
+            <targetReference>OutreachInfo_Screen</targetReference>
         </connector>
-        <inputReference>Program_Outreach</inputReference>
+        <inputReference>ProgramOutreach_GetRecord</inputReference>
     </recordUpdates>
     <screens>
-        <name>Aware_Script</name>
-        <label>Aware Script</label>
+        <name>CloseAvailable_Screen</name>
+        <label>CloseAvailable Screen</label>
         <locationX>446</locationX>
-        <locationY>2318</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
-        <connector>
-            <targetReference>Send_Pop_Member_Email</targetReference>
-        </connector>
-        <fields>
-            <name>aware_text</name>
-            <fieldText>&lt;p&gt;{!Program_Script.Talk_Track_Customer_Is_Aware__c}&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <fields>
-            <name>Aware_SendEmail_Toggle</name>
-            <extensionName>flowruntime:toggle</extensionName>
-            <fieldType>ComponentInstance</fieldType>
-            <inputParameters>
-                <name>label</name>
-                <value>
-                    <stringValue>Send Email?</stringValue>
-                </value>
-            </inputParameters>
-            <inputParameters>
-                <name>messageToggleActive</name>
-                <value>
-                    <stringValue>YES</stringValue>
-                </value>
-            </inputParameters>
-            <inputParameters>
-                <name>messageToggleInactive</name>
-                <value>
-                    <stringValue>NO</stringValue>
-                </value>
-            </inputParameters>
-            <inputParameters>
-                <name>value</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </inputParameters>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
-            <storeOutputAutomatically>true</storeOutputAutomatically>
-        </fields>
-        <fields>
-            <name>Translate_Talk_Track_Customer_Is_Aware</name>
-            <defaultValue>
-                <stringValue>{!Program_Script.Talk_Track_Customer_Is_Aware__c}</stringValue>
-            </defaultValue>
-            <fieldText>Translate: &quot;Talk Track: Customer Is Aware&quot;</fieldText>
-            <fieldType>LargeTextArea</fieldType>
-            <isRequired>false</isRequired>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>MODE</leftValueReference>
-                    <operator>EqualTo</operator>
-                    <rightValue>
-                        <stringValue>EDIT</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
-    <screens>
-        <name>Closing_Did_Not_Answer</name>
-        <label>Closing: Did Not Answer</label>
-        <locationX>1106</locationX>
-        <locationY>2198</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
-        <connector>
-            <targetReference>Comments_Did_Not_Answer</targetReference>
-        </connector>
-        <fields>
-            <name>DidNotAnswer_Text</name>
-            <fieldText>&lt;p&gt;{!Program_Script.Instruction_Close_Out_Did_Not_Answer__c}&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <fields>
-            <name>Unable_To_Connect_Reason</name>
-            <choiceReferences>cUnableToConnectReason</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Unable To Connect Reason:</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <isRequired>true</isRequired>
-        </fields>
-        <fields>
-            <name>Do_Not_Call_Requested</name>
-            <dataType>Boolean</dataType>
-            <defaultValue>
-                <booleanValue>false</booleanValue>
-            </defaultValue>
-            <fieldText>Do Not Call Requested</fieldText>
-            <fieldType>InputField</fieldType>
-            <isRequired>true</isRequired>
-        </fields>
-        <fields>
-            <name>CommentsDidNotAnswer</name>
-            <fieldText>Comments</fieldText>
-            <fieldType>LargeTextArea</fieldType>
-            <isRequired>false</isRequired>
-        </fields>
-        <fields>
-            <name>Escalation_Comments_DidNotAnswer</name>
-            <fieldText>Escalation Comments</fieldText>
-            <fieldType>LargeTextArea</fieldType>
-            <isRequired>false</isRequired>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
-    <screens>
-        <name>Closing_Script</name>
-        <label>Closing Script</label>
-        <locationX>578</locationX>
         <locationY>2990</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Pop_Member_Closing</targetReference>
+            <targetReference>OutreachUpdateAvailable_Assignment</targetReference>
         </connector>
         <fields>
             <name>closing_text</name>
-            <fieldText>&lt;p&gt;{!Program_Script.Instruction_Close_Did_Answer__c}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Instruction_Close_Did_Answer__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
-            <name>Outreach_Sentiment</name>
+            <name>SentimentAvailable_Picklist</name>
             <choiceReferences>cSentiment</choiceReferences>
             <dataType>String</dataType>
             <fieldText>Outreach Sentiment</fieldText>
@@ -845,19 +597,19 @@
             <isRequired>false</isRequired>
         </fields>
         <fields>
-            <name>Comments</name>
+            <name>CommentsAvailable_Text</name>
             <fieldText>Comments</fieldText>
             <fieldType>LargeTextArea</fieldType>
             <isRequired>false</isRequired>
         </fields>
         <fields>
-            <name>Escalation_Required</name>
+            <name>EscalationRequiredAvailable_Text</name>
             <fieldText>Escalation Required</fieldText>
             <fieldType>LargeTextArea</fieldType>
             <isRequired>false</isRequired>
         </fields>
         <fields>
-            <name>Do_Not_Call_Requested_Checkbox</name>
+            <name>DoNotCallAvailable_Checkbox</name>
             <dataType>Boolean</dataType>
             <defaultValue>
                 <booleanValue>false</booleanValue>
@@ -867,89 +619,179 @@
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
-        <name>Contact_Warning</name>
-        <label>Contact Warning</label>
-        <locationX>578</locationX>
-        <locationY>758</locationY>
+        <name>CloseNotAvailable_Screen</name>
+        <label>CloseNotAvailable Screen</label>
+        <locationX>831</locationX>
+        <locationY>3782</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Program_Outreach</targetReference>
+            <targetReference>OutreachUpdateNotAvailable_Assignment</targetReference>
         </connector>
         <fields>
-            <name>ContactWarningText</name>
-            <fieldText>&lt;p&gt;{!Program_Script.Instruction_Until_Read_To_Call__c}&lt;/p&gt;</fieldText>
+            <name>DidNotAnswer_Text</name>
+            <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Instruction_Close_Not_Available__c}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>UnconnectedReasonNotAvailable_Picklist</name>
+            <choiceReferences>cUnableToConnectReason</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Unconnected Reason:</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>DoNotCallNotAvailable_Checkbox</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <booleanValue>false</booleanValue>
+            </defaultValue>
+            <fieldText>Do Not Call Requested</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>CommentsNotAvailable_Text</name>
+            <fieldText>Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>EscalationCommentsNotAvailable_Text</name>
+            <fieldText>Escalation Comments</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>EmailAccepted_Screen</name>
+        <label>EmailAccepted Screen</label>
+        <locationX>314</locationX>
+        <locationY>2774</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>CloseAvailable_Screen</targetReference>
+        </connector>
+        <fields>
+            <name>Great_Text</name>
+            <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Talk_Track_Email_Accepted__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
     <screens>
-        <name>Great_Script</name>
-        <label>Great Script</label>
-        <locationX>446</locationX>
+        <name>EmailDeclined_Screen</name>
+        <label>EmailDeclined Screen</label>
+        <locationX>578</locationX>
         <locationY>2774</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Closing_Script</targetReference>
+            <targetReference>CloseAvailable_Screen</targetReference>
         </connector>
         <fields>
-            <name>Great_Text</name>
-            <fieldText>&lt;p&gt;{!Program_Script.Talk_Track_Email_Accepted__c}&lt;/p&gt;</fieldText>
+            <name>thankyou_text</name>
+            <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Talk_Track_Email_Declined__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
-        <fields>
-            <name>Translate_Talk_Track_Email_Accepted</name>
-            <defaultValue>
-                <stringValue>{!Program_Script.Talk_Track_Email_Accepted__c}</stringValue>
-            </defaultValue>
-            <fieldText>Translate: &quot;Talk Track: Email Accepted&quot;</fieldText>
-            <fieldType>LargeTextArea</fieldType>
-            <isRequired>false</isRequired>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>MODE</leftValueReference>
-                    <operator>EqualTo</operator>
-                    <rightValue>
-                        <stringValue>EDIT</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
-        </fields>
         <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
-        <name>Hello_Script</name>
-        <label>Hello Script</label>
-        <locationX>578</locationX>
+        <name>Hello_Screen</name>
+        <label>Hello Screen</label>
+        <locationX>446</locationX>
         <locationY>1958</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Is_Pop_Outreach_Aware</targetReference>
+            <targetReference>OutreachAware_Decision</targetReference>
         </connector>
         <fields>
-            <name>hello_text</name>
-            <fieldText>&lt;p&gt;{!Program_Script.Talk_Track_Hello__c}&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
+            <name>Hello_Screen_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Hello_Screen_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>TalkTrackHello_DisplayText</name>
+                    <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Talk_Track_Hello__c}&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Hello_Screen_Section1_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>ContactHello_Name</name>
+                    <extensionName>flowruntime:name</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>firstName</name>
+                        <value>
+                            <elementReference>ProgramOutreach_GetRecord.First_Name__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>lastName</name>
+                        <value>
+                            <elementReference>ProgramOutreach_GetRecord.Last_Name__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>readonly</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
         </fields>
         <fields>
-            <name>aware_toggle</name>
+            <name>AwareOfProgram_Toggle</name>
             <extensionName>flowruntime:toggle</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
                 <name>label</name>
                 <value>
-                    <stringValue>Is customer aware?</stringValue>
+                    <elementReference>ProgramScript_GetRecord.Decision_Aware_of_Program__c</elementReference>
                 </value>
             </inputParameters>
             <inputParameters>
@@ -974,43 +816,23 @@
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
-        <fields>
-            <name>Translate_Talk_Track_Hello</name>
-            <defaultValue>
-                <stringValue>{!Program_Script.Talk_Track_Hello__c}</stringValue>
-            </defaultValue>
-            <fieldText>Translate: &quot;Talk Track: Hello&quot;</fieldText>
-            <fieldType>LargeTextArea</fieldType>
-            <isRequired>false</isRequired>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>MODE</leftValueReference>
-                    <operator>EqualTo</operator>
-                    <rightValue>
-                        <stringValue>EDIT</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
-        </fields>
         <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>Main_Menu</name>
         <label>Main Menu</label>
-        <locationX>578</locationX>
+        <locationX>440</locationX>
         <locationY>518</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Program_Script</targetReference>
+            <targetReference>ProgramScript_GetRecord</targetReference>
         </connector>
         <fields>
             <name>Main_Menu_Section1</name>
             <fieldType>RegionContainer</fieldType>
-            <regionContainerType>SectionWithoutHeader</regionContainerType>
             <fields>
                 <name>Main_Menu_Section1_Column1</name>
                 <fieldType>Region</fieldType>
@@ -1020,18 +842,18 @@
                     <fieldType>DisplayText</fieldType>
                 </fields>
                 <fields>
-                    <name>Language_Select</name>
-                    <choiceReferences>cEnglish</choiceReferences>
+                    <name>LanguageSelect_Picklist</name>
+                    <choiceReferences>ScriptLanguage</choiceReferences>
                     <dataType>String</dataType>
-                    <fieldText>Language Select:</fieldText>
+                    <fieldText>Select a Language:</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Region_Select</name>
+                    <name>RegionSelect_Picklist</name>
                     <choiceReferences>cRegion</choiceReferences>
                     <dataType>String</dataType>
-                    <fieldText>Region Select:</fieldText>
+                    <fieldText>Select a Region</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <isRequired>false</isRequired>
                 </fields>
@@ -1044,50 +866,168 @@
                 <isRequired>false</isRequired>
             </fields>
             <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
     <screens>
-        <name>No_More_Pop_Outreach</name>
-        <label>No More Pop Outreach</label>
+        <name>NoMoreOutreach_Screen</name>
+        <label>NoMoreOutreach Screen</label>
         <locationX>50</locationX>
         <locationY>1118</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <fields>
-            <name>NoMoreMembersText</name>
-            <fieldText>&lt;p&gt;&lt;strong&gt;{!Program_Script.Instruction_No_More_Calls__c}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <name>NoMoreOutreach_DisplayText</name>
+            <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Instruction_No_More_Outreach__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
-        <name>Not_Aware_Script</name>
-        <label>Not Aware Script</label>
-        <locationX>710</locationX>
+        <name>OutreachAvailable_Screen</name>
+        <label>OutreachAvailable Screen</label>
+        <locationX>644</locationX>
+        <locationY>1598</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>OutreachAvailble_Decision</targetReference>
+        </connector>
+        <fields>
+            <name>OutreachAvailable_Screen_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>OutreachAvailable_Screen_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>CustomerAnswered_Text</name>
+                    <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Talk_Track_Outreach_Answered__c}&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>OutreachAvailable_Screen_Section1_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>ContactAvailable_Name</name>
+                    <extensionName>flowruntime:name</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>firstName</name>
+                        <value>
+                            <elementReference>ProgramOutreach_GetRecord.First_Name__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>lastName</name>
+                        <value>
+                            <elementReference>ProgramOutreach_GetRecord.Last_Name__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>readonly</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+        </fields>
+        <fields>
+            <name>AvailableToSpeak_Toggle</name>
+            <extensionName>flowruntime:toggle</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>messageToggleActive</name>
+                <value>
+                    <stringValue>YES</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>messageToggleInactive</name>
+                <value>
+                    <stringValue>NO</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>value</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <elementReference>ProgramScript_GetRecord.Decision_Available_To_Speak__c</elementReference>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>OutreachAware_Screen</name>
+        <label>OutreachAware Screen</label>
+        <locationX>314</locationX>
         <locationY>2318</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Send_Pop_Member_Email</targetReference>
+            <targetReference>SendEmailConnected_Decision</targetReference>
         </connector>
         <fields>
-            <name>not_aware_text</name>
-            <fieldText>&lt;p&gt;{!Program_Script.Talk_Track_Customer_Is_Not_Aware__c}&lt;/p&gt;</fieldText>
+            <name>aware_text</name>
+            <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Talk_Track_Outreach_Aware__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
-            <name>NotAware_SendEmail_Toggle</name>
+            <name>Aware_SendEmail_Toggle</name>
             <extensionName>flowruntime:toggle</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
                 <name>label</name>
                 <value>
-                    <stringValue>Send Email?</stringValue>
+                    <elementReference>ProgramScript_GetRecord.Decision_Send_Email__c</elementReference>
                 </value>
             </inputParameters>
             <inputParameters>
@@ -1112,85 +1052,33 @@
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
-        <fields>
-            <name>Translate_Talk_Track_Customer_Is_Not_Aware</name>
-            <defaultValue>
-                <stringValue>{!Program_Script.Talk_Track_Customer_Is_Not_Aware__c}</stringValue>
-            </defaultValue>
-            <fieldText>Translate: &quot;Talk Track: Customer Is Not Aware&quot;</fieldText>
-            <fieldType>LargeTextArea</fieldType>
-            <isRequired>false</isRequired>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>MODE</leftValueReference>
-                    <operator>EqualTo</operator>
-                    <rightValue>
-                        <stringValue>EDIT</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
-        </fields>
         <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
-        <name>Pop_Member_Info</name>
-        <label>Pop Outreach Info</label>
-        <locationX>1106</locationX>
+        <name>OutreachInfo_Screen</name>
+        <label>OutreachInfo Screen</label>
+        <locationX>831</locationX>
         <locationY>1358</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Pop_Outreach_Answer</targetReference>
+            <targetReference>OutreachAnswer_Decision</targetReference>
         </connector>
         <fields>
-            <name>Pop_Member_Info_Section1</name>
+            <name>InstructionCallCustomer_DisplayText</name>
+            <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Instruction_Make_Outreach__c}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>OutreachInfo_Screen_Section1</name>
             <fieldType>RegionContainer</fieldType>
-            <regionContainerType>SectionWithoutHeader</regionContainerType>
             <fields>
-                <name>Pop_Member_Info_Section1_Column1</name>
+                <name>OutreachInfo_Screen_Section1_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>PopMemberSectionText</name>
-                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 16px;&quot;&gt;Contact Information&lt;/strong&gt;&lt;/p&gt;</fieldText>
-                    <fieldType>DisplayText</fieldType>
-                </fields>
-                <fields>
-                    <name>Customer_Name</name>
-                    <extensionName>flowruntime:name</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>disabled</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>firstName</name>
-                        <value>
-                            <elementReference>Program_Outreach.Contact__r.FirstName</elementReference>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>lastName</name>
-                        <value>
-                            <elementReference>Program_Outreach.Contact__r.LastName</elementReference>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>readonly</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
-                </fields>
-                <fields>
-                    <name>Customer_Phone_Number</name>
+                    <name>Customer_Phone</name>
                     <extensionName>flowruntime:phone</extensionName>
                     <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
@@ -1202,7 +1090,7 @@
                     <inputParameters>
                         <name>value</name>
                         <value>
-                            <elementReference>Program_Outreach.Contact__r.Phone</elementReference>
+                            <elementReference>ProgramOutreach_GetRecord.Phone__c</elementReference>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -1212,108 +1100,59 @@
                 <inputParameters>
                     <name>width</name>
                     <value>
-                        <stringValue>12</stringValue>
+                        <stringValue>6</stringValue>
                     </value>
                 </inputParameters>
                 <isRequired>false</isRequired>
             </fields>
-            <isRequired>false</isRequired>
-        </fields>
-        <fields>
-            <name>Customer_Email</name>
-            <extensionName>flowruntime:email</extensionName>
-            <fieldType>ComponentInstance</fieldType>
-            <inputParameters>
-                <name>readonly</name>
-                <value>
-                    <booleanValue>true</booleanValue>
-                </value>
-            </inputParameters>
-            <inputParameters>
-                <name>value</name>
-                <value>
-                    <elementReference>Program_Outreach.Contact__r.Email</elementReference>
-                </value>
-            </inputParameters>
-            <inputParameters>
-                <name>disabled</name>
-                <value>
-                    <booleanValue>true</booleanValue>
-                </value>
-            </inputParameters>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
-            <storeOutputAutomatically>true</storeOutputAutomatically>
-        </fields>
-        <fields>
-            <name>Pop_Member_Info_Section2</name>
-            <fieldType>RegionContainer</fieldType>
-            <regionContainerType>SectionWithoutHeader</regionContainerType>
             <fields>
-                <name>Pop_Member_Info_Section2_Column1</name>
+                <name>OutreachInfo_Screen_Section1_Column2</name>
                 <fieldType>Region</fieldType>
+                <fields>
+                    <name>ContactOutreach_Name</name>
+                    <extensionName>flowruntime:name</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>firstName</name>
+                        <value>
+                            <elementReference>ProgramOutreach_GetRecord.First_Name__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>lastName</name>
+                        <value>
+                            <elementReference>ProgramOutreach_GetRecord.Last_Name__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>readonly</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
-                        <stringValue>12</stringValue>
+                        <stringValue>6</stringValue>
                     </value>
                 </inputParameters>
                 <isRequired>false</isRequired>
             </fields>
             <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
         </fields>
         <fields>
-            <name>Customer_Answer_Text</name>
-            <fieldText>&lt;p&gt;Did the customer answer?&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <fields>
-            <name>Customer_Answere_Toggle</name>
-            <extensionName>flowruntime:toggle</extensionName>
-            <fieldType>ComponentInstance</fieldType>
-            <inputParameters>
-                <name>messageToggleActive</name>
-                <value>
-                    <stringValue>YES</stringValue>
-                </value>
-            </inputParameters>
-            <inputParameters>
-                <name>messageToggleInactive</name>
-                <value>
-                    <stringValue>NO</stringValue>
-                </value>
-            </inputParameters>
-            <inputParameters>
-                <name>value</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </inputParameters>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
-            <storeOutputAutomatically>true</storeOutputAutomatically>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
-    <screens>
-        <name>Pop_Outreach_Answered</name>
-        <label>Pop Outreach Answered</label>
-        <locationX>842</locationX>
-        <locationY>1598</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
-        <connector>
-            <targetReference>Pop_Outreach_Available_to_Spreak</targetReference>
-        </connector>
-        <fields>
-            <name>CustomerAnswered_Text</name>
-            <fieldText>&lt;p&gt;{!Program_Script.Talk_Track_Customer_Answered__c}&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <fields>
-            <name>Customer_Available_To_Speak</name>
+            <name>DidCustomerAnswer_Toggle</name>
             <extensionName>flowruntime:toggle</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
@@ -1337,115 +1176,109 @@
             <inputParameters>
                 <name>label</name>
                 <value>
-                    <stringValue>Is the customer available to speak?</stringValue>
+                    <elementReference>ProgramScript_GetRecord.Decision_Outreach_Answered__c</elementReference>
                 </value>
             </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
-        <fields>
-            <name>Translate_Talk_Track_Customer_Answered</name>
-            <defaultValue>
-                <stringValue>{!Program_Script.Talk_Track_Customer_Answered__c}</stringValue>
-            </defaultValue>
-            <fieldText>Translate: &quot;Talk Track: Customer Answered&quot;</fieldText>
-            <fieldType>LargeTextArea</fieldType>
-            <isRequired>false</isRequired>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>MODE</leftValueReference>
-                    <operator>EqualTo</operator>
-                    <rightValue>
-                        <stringValue>EDIT</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
-        </fields>
         <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
-        <name>Pop_Outreach_Did_Not_Answer</name>
-        <label>Pop Outreach Did Not Answer</label>
-        <locationX>1106</locationX>
-        <locationY>1838</locationY>
+        <name>OutreachNotAvailable_Screen</name>
+        <label>OutreachNotAvailable Screen</label>
+        <locationX>831</locationX>
+        <locationY>3662</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Pop_Outreach_Status_Voicemail</targetReference>
+            <targetReference>CloseNotAvailable_Screen</targetReference>
         </connector>
         <fields>
-            <name>did_not_answer_text</name>
-            <fieldText>&lt;p&gt;{!Program_Script.Instruction_Close_Out_Did_Not_Answer__c}&lt;/p&gt;</fieldText>
+            <name>TalkTrackOutreachNotAvailable_DisplayText</name>
+            <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Talk_Track_Outreach_Not_Available__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
-        <fields>
-            <name>Translate_Talk_Track_Customer_Did_Not_Answer</name>
-            <defaultValue>
-                <stringValue>{!Program_Script.Talk_Track_Customer_Did_Not_Answer__c}</stringValue>
-            </defaultValue>
-            <fieldText>Translate: &quot;Talk Track: Customer Did Not Answer&quot;</fieldText>
-            <fieldType>LargeTextArea</fieldType>
-            <isRequired>false</isRequired>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>MODE</leftValueReference>
-                    <operator>EqualTo</operator>
-                    <rightValue>
-                        <stringValue>EDIT</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
-        </fields>
         <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
-        <name>Thank_You_Script</name>
-        <label>Thank You Script</label>
-        <locationX>710</locationX>
-        <locationY>2774</locationY>
+        <name>OutreachNotAware_Screen</name>
+        <label>OutreachNotAware Screen</label>
+        <locationX>578</locationX>
+        <locationY>2318</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Closing_Script</targetReference>
+            <targetReference>SendEmailConnected_Decision</targetReference>
         </connector>
         <fields>
-            <name>thankyou_text</name>
-            <fieldText>&lt;p&gt;{!Program_Script.Talk_Track_Email_Declined__c}&lt;/p&gt;</fieldText>
+            <name>not_aware_text</name>
+            <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Talk_Track_Outreach_Not_Aware__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
-            <name>Translate_Talk_Track_Email_Declined</name>
-            <defaultValue>
-                <stringValue>{!Program_Script.Talk_Track_Email_Declined__c}</stringValue>
-            </defaultValue>
-            <fieldText>Translate: &quot;Talk Track: Email Declined&quot;</fieldText>
-            <fieldType>LargeTextArea</fieldType>
-            <isRequired>false</isRequired>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>MODE</leftValueReference>
-                    <operator>EqualTo</operator>
-                    <rightValue>
-                        <stringValue>EDIT</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
+            <name>NotAware_SendEmail_Toggle</name>
+            <extensionName>flowruntime:toggle</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <elementReference>ProgramScript_GetRecord.Decision_Send_Email__c</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>messageToggleActive</name>
+                <value>
+                    <stringValue>YES</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>messageToggleInactive</name>
+                <value>
+                    <stringValue>NO</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>value</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
         <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>ReadyToCall_Screen</name>
+        <label>ReadyToCall Screen</label>
+        <locationX>440</locationX>
+        <locationY>758</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>ProgramOutreach_GetRecord</targetReference>
+        </connector>
+        <fields>
+            <name>InstructionReadyToCall_DisplayText</name>
+            <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Instruction_Until_Ready_To_Call__c}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>User_Cannot_Run_Flow</name>
         <label>User Cannot Run Flow</label>
-        <locationX>1634</locationX>
+        <locationX>1194</locationX>
         <locationY>398</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -1456,10 +1289,10 @@
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
+        <showHeader>false</showHeader>
     </screens>
     <start>
-        <locationX>980</locationX>
+        <locationX>691</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>CanRunScript_Subflow</targetReference>
@@ -1469,42 +1302,13 @@
     <subflows>
         <name>CanRunScript_Subflow</name>
         <label>CanRunScript Subflow</label>
-        <locationX>1106</locationX>
+        <locationX>817</locationX>
         <locationY>158</locationY>
         <connector>
-            <targetReference>User_Validation</targetReference>
+            <targetReference>CanUserRun_Decision</targetReference>
         </connector>
         <flowName>POP_Screen_Can_Run_Script</flowName>
         <storeOutputAutomatically>true</storeOutputAutomatically>
-    </subflows>
-    <subflows>
-        <name>Subflow_Program_Outreach_Email</name>
-        <label>Subflow: Program Outreach: Email</label>
-        <locationX>314</locationX>
-        <locationY>3470</locationY>
-        <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Main_Menu</targetReference>
-        </connector>
-        <flowName>Program_Outreach_Email</flowName>
-        <inputAssignments>
-            <name>LANGUAGE</name>
-            <value>
-                <elementReference>Language_Select</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>ProgramName</name>
-            <value>
-                <elementReference>recordId</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>VOICEMAIL</name>
-            <value>
-                <elementReference>isVoicemail</elementReference>
-            </value>
-        </inputAssignments>
     </subflows>
     <variables>
         <name>dummy</name>

@@ -97,14 +97,14 @@
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Decision_Able_To_Speak_To_Customer__c</fieldItem>
-                <identifier>RecordDecision_Able_To_Speak_To_Customer_cField</identifier>
+                <fieldItem>Record.Decision_Did_Customer_Answer__c</fieldItem>
+                <identifier>RecordDecision_Customer_Answered_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Decision_Aware_of_Campaign__c</fieldItem>
-                <identifier>RecordDecision_Aware_of_Campaign_cField</identifier>
+                <fieldItem>Record.Decision_Available_To_Speak__c</fieldItem>
+                <identifier>RecordDecision_Able_To_Speak_To_Customer_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-ffc782fd-ee96-44a7-809f-283bb6a9a797</name>
@@ -113,8 +113,8 @@
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Decision_Customer_Answered__c</fieldItem>
-                <identifier>RecordDecision_Customer_Answered_cField</identifier>
+                <fieldItem>Record.Decision_Aware_of_Program__c</fieldItem>
+                <identifier>RecordDecision_Aware_of_Campaign_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -153,20 +153,20 @@
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Instruction_Awareness__c</fieldItem>
-                <identifier>RecordInstruction_Awareness_cField</identifier>
+                <fieldItem>Record.Instruction_Until_Ready_To_Call__c</fieldItem>
+                <identifier>RecordInstruction_Until_Read_To_Call_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Instruction_Call_Customer__c</fieldItem>
+                <fieldItem>Record.Instruction_Make_Outreach__c</fieldItem>
                 <identifier>RecordInstruction_Call_Customer_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Instruction_Close_Did_Answer__c</fieldItem>
-                <identifier>RecordInstruction_Close_Did_Answer_cField</identifier>
+                <fieldItem>Record.Instruction_Awareness__c</fieldItem>
+                <identifier>RecordInstruction_Awareness_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-14022a72-561c-4920-8042-00f70fe2261b</name>
@@ -175,20 +175,20 @@
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Instruction_Close_Out_Did_Not_Answer__c</fieldItem>
+                <fieldItem>Record.Instruction_Close_Not_Available__c</fieldItem>
                 <identifier>RecordInstruction_Close_Out_Did_Not_Answer_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Instruction_No_More_Calls__c</fieldItem>
-                <identifier>RecordInstruction_No_More_Calls_cField</identifier>
+                <fieldItem>Record.Instruction_Close_Did_Answer__c</fieldItem>
+                <identifier>RecordInstruction_Close_Did_Answer_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Instruction_Until_Read_To_Call__c</fieldItem>
-                <identifier>RecordInstruction_Until_Read_To_Call_cField</identifier>
+                <fieldItem>Record.Instruction_No_More_Outreach__c</fieldItem>
+                <identifier>RecordInstruction_No_More_Calls_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -227,25 +227,13 @@
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Talk_Track_Hello__c</fieldItem>
-                <identifier>RecordTalk_Track_Hello_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldItem>Record.Talk_Track_Hello_And_Conversation_Ends__c</fieldItem>
-                <identifier>RecordTalk_Track_Hello_And_Conversation_Ends_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldItem>Record.Talk_Track_Customer_Answered__c</fieldItem>
+                <fieldItem>Record.Talk_Track_Outreach_Answered__c</fieldItem>
                 <identifier>RecordTalk_Track_Customer_Answered_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Talk_Track_Customer_Did_Not_Answer__c</fieldItem>
+                <fieldItem>Record.Talk_Track_Outreach_Not_Available__c</fieldItem>
                 <identifier>RecordTalk_Track_Customer_Did_Not_Answer_cField</identifier>
             </fieldInstance>
         </itemInstances>
@@ -255,13 +243,19 @@
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Talk_Track_Customer_Is_Aware__c</fieldItem>
+                <fieldItem>Record.Talk_Track_Hello__c</fieldItem>
+                <identifier>RecordTalk_Track_Hello_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Talk_Track_Outreach_Aware__c</fieldItem>
                 <identifier>RecordTalk_Track_Customer_Is_Aware_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Talk_Track_Customer_Is_Not_Aware__c</fieldItem>
+                <fieldItem>Record.Talk_Track_Outreach_Not_Aware__c</fieldItem>
                 <identifier>RecordTalk_Track_Customer_Is_Not_Aware_cField</identifier>
             </fieldInstance>
         </itemInstances>
@@ -275,6 +269,12 @@
             <fieldInstance>
                 <fieldItem>Record.Talk_Track_Email_Declined__c</fieldItem>
                 <identifier>RecordTalk_Track_Email_Declined_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Talk_Track_Hello_And_Conversation_Ends__c</fieldItem>
+                <identifier>RecordTalk_Track_Hello_And_Conversation_Ends_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-8294374a-76a1-4ae1-8b42-a85ca302d7fd</name>

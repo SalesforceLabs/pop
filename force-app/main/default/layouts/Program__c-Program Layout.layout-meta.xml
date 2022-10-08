@@ -66,8 +66,8 @@
         <fields>NAME</fields>
         <fields>Contact.CNTC_FIRST_NAME</fields>
         <fields>Contact.NAME</fields>
-        <fields>Account.ACC_NAME</fields>
         <fields>Status__c</fields>
+        <fields>Account.ACC_NAME</fields>
         <fields>Status_Reason__c</fields>
         <fields>Unconnected_Reason__c</fields>
         <relatedList>Program_Outreach__c.Program__c</relatedList>
@@ -103,7 +103,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hP0000004HCKJ</masterLabel>
+        <masterLabel>00h8N000000NOsI</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

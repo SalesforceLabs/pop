@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Talk_Track_Hello__c</fullName>
+    <description>Talk track for agent that reaches the intended person.</description>
     <externalId>false</externalId>
+    <inlineHelpText>Talk track for agent that reaches the intended person.</inlineHelpText>
     <label>Talk Track: Hello</label>
     <length>32768</length>
     <trackHistory>false</trackHistory>

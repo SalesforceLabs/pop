@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Talk_Track_Customer_Is_Aware__c</fullName>
+    <fullName>Talk_Track_Outreach_Not_Available__c</fullName>
+    <description>Talk track for agent when the outreach could not be made.</description>
     <externalId>false</externalId>
-    <label>Talk Track: Customer Is Aware</label>
+    <inlineHelpText>Talk track for agent when the outreach could not be made.</inlineHelpText>
+    <label>Talk Track: Outreach Not Available</label>
     <length>32768</length>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
