@@ -3,6 +3,7 @@
     <apiVersion>55.0</apiVersion>
     <environments>Default</environments>
     <interviewLabel>Program Script: Screen: {!$Flow.CurrentDateTime}</interviewLabel>
+    <isOverridable>true</isOverridable>
     <label>Program Script: Screen: Default Script</label>
     <processMetadataValues>
         <name>BuilderType</name>

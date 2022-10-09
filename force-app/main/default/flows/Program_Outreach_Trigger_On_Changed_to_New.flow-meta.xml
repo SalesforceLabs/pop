@@ -2,7 +2,9 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>55.0</apiVersion>
     <description>When a program outreach is changed to new: 1) Reset non-contact related fields</description>
+    <environments>Default</environments>
     <interviewLabel>Program Outreach: Trigger: On Changed to New {!$Flow.CurrentDateTime}</interviewLabel>
+    <isOverridable>true</isOverridable>
     <label>Program Outreach: Trigger: On Changed to New</label>
     <processMetadataValues>
         <name>BuilderType</name>

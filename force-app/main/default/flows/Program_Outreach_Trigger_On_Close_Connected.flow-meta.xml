@@ -24,7 +24,9 @@
         </rules>
     </decisions>
     <description>When a Program Outreach is Closed Connected: 1) If the Program is set to Close Account on Connected, every other contact at account that is set to NEW will be closed as CLOSED CONNECTED ELSEWHERE</description>
+    <environments>Default</environments>
     <interviewLabel>Program Outreach: Trigger: On Close Connected {!$Flow.CurrentDateTime}</interviewLabel>
+    <isOverridable>true</isOverridable>
     <label>Program Outreach: Trigger: On Close Connected</label>
     <processMetadataValues>
         <name>BuilderType</name>

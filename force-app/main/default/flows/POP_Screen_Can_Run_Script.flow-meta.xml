@@ -53,7 +53,9 @@
         </rules>
     </decisions>
     <description>Autolaunched Flow that checks if current user has permission to run a script</description>
+    <environments>Default</environments>
     <interviewLabel>POP: Screen: Can Run Script {!$Flow.CurrentDateTime}</interviewLabel>
+    <isOverridable>true</isOverridable>
     <label>POP: Screen: Can Run Script</label>
     <processMetadataValues>
         <name>BuilderType</name>

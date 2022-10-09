@@ -114,6 +114,7 @@
     <description>Autolaunched Flow that will clone any outreach that is marked unconnected with a valid reasons for cloning. Since this is limited to 5k records, it keeps track of which ones were cloned if needed to run multiple times.</description>
     <environments>Default</environments>
     <interviewLabel>Program Outreach: Autolaunched: Clone Unconnected {!$Flow.CurrentDateTime}</interviewLabel>
+    <isOverridable>true</isOverridable>
     <label>Program Outreach: Autolaunched: Clone Unconnected</label>
     <loops>
         <name>ProgramOutreach_Loop</name>

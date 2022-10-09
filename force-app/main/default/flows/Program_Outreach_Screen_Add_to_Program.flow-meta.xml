@@ -80,7 +80,9 @@
         <object>Program__c</object>
         <valueField>Id</valueField>
     </dynamicChoiceSets>
+    <environments>Default</environments>
     <interviewLabel>Program Outreach: Screen: Add to Program {!$Flow.CurrentDateTime}</interviewLabel>
+    <isOverridable>true</isOverridable>
     <label>Program Outreach: Screen: Add to Program</label>
     <loops>
         <name>Ids_Loop</name>

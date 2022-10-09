@@ -2,7 +2,9 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>55.0</apiVersion>
     <description>When a program outreach is changed to assigned: 1) set status to IN PROGRESS 2) set in progress date/time to NOW</description>
+    <environments>Default</environments>
     <interviewLabel>Program Outreach: Trigger: On Assigned {!$Flow.CurrentDateTime}</interviewLabel>
+    <isOverridable>true</isOverridable>
     <label>Program Outreach: Trigger: On Assigned</label>
     <processMetadataValues>
         <name>BuilderType</name>

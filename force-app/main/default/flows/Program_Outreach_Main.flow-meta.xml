@@ -468,6 +468,7 @@
     </dynamicChoiceSets>
     <environments>Default</environments>
     <interviewLabel>Program Outreach: Main {!$Flow.CurrentDateTime}</interviewLabel>
+    <isOverridable>true</isOverridable>
     <label>Program Outreach: Main</label>
     <processMetadataValues>
         <name>BuilderType</name>
