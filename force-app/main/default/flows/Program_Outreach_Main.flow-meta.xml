@@ -528,14 +528,14 @@
             </value>
         </filters>
         <filters>
-            <field>Language__c</field>
+            <field>Indexed_Language__c</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>LanguageSelect_Picklist</elementReference>
             </value>
         </filters>
         <filters>
-            <field>Region__c</field>
+            <field>Indexed_Region__c</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>RegionSelect_Picklist</elementReference>
