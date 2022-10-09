@@ -17,9 +17,9 @@
                 <label>Sent</label>
             </value>
             <value>
-                <fullName>Not Sent</fullName>
+                <fullName>Send</fullName>
                 <default>false</default>
-                <label>Not Sent</label>
+                <label>Send</label>
             </value>
             <value>
                 <fullName>Not Sent-Declined</fullName>

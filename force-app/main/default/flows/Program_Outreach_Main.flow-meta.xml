@@ -10,7 +10,7 @@
             <assignToReference>ProgramOutreach_GetRecord.Email_Status__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Sent</stringValue>
+                <stringValue>Send</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -215,7 +215,7 @@
             <assignToReference>ProgramOutreach_GetRecord.Email_Status__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Sent</stringValue>
+                <stringValue>Send</stringValue>
             </value>
         </assignmentItems>
         <assignmentItems>

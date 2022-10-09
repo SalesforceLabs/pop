@@ -299,6 +299,12 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Email_Subject__c</fieldItem>
+                <identifier>RecordEmail_Subject_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-043f2549-26c4-4f39-940c-7e11c5ddb7c0</name>
         <type>Facet</type>
     </flexiPageRegions>

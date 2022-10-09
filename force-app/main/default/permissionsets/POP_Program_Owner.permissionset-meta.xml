@@ -55,11 +55,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Program_Outreach__c.Bad_Incorrect_Phone__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Program_Outreach__c.Cloned_to_New_Outreach__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -110,11 +105,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Program_Outreach__c.No_Longer_With_Company__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Program_Outreach__c.Sentiment__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -135,12 +125,42 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Program_Script__c.Instruction_Awareness__c</field>
+        <field>Program_Script__c.Decision_Available_To_Speak__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Program_Script__c.Instruction_Close_Did_Answer__c</field>
+        <field>Program_Script__c.Decision_Aware_of_Program__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Program_Script__c.Decision_Outreach_Answered__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Program_Script__c.Decision_Send_Email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Program_Script__c.Email_Body__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Program_Script__c.Email_Subject__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Program_Script__c.Instruction_Aware__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Program_Script__c.Instruction_Close_Available__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

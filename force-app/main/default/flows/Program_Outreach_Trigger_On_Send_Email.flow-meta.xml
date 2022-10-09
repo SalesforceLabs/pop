@@ -3,10 +3,13 @@
     <actionCalls>
         <name>SendEmail_Action</name>
         <label>SendEmail Action</label>
-        <locationX>308</locationX>
-        <locationY>528</locationY>
+        <locationX>242</locationX>
+        <locationY>648</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Outreach_UpdateRecord</targetReference>
+        </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailBody</name>
@@ -29,7 +32,7 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
-                <stringValue>Subject</stringValue>
+                <elementReference>ProgramScript_GetRecord.Email_Subject__c</elementReference>
             </value>
         </inputParameters>
     </actionCalls>
@@ -37,8 +40,8 @@
     <assignments>
         <name>EmailTextCollection_Assignment</name>
         <label>EmailTextCollection Assignment</label>
-        <locationX>308</locationX>
-        <locationY>408</locationY>
+        <locationX>242</locationX>
+        <locationY>528</locationY>
         <assignmentItems>
             <assignToReference>Email_TextCollection</assignToReference>
             <operator>Add</operator>
@@ -50,6 +53,42 @@
             <targetReference>SendEmail_Action</targetReference>
         </connector>
     </assignments>
+    <decisions>
+        <name>Emailable_Decision</name>
+        <label>Is this Emailable?</label>
+        <locationX>374</locationX>
+        <locationY>408</locationY>
+        <defaultConnectorLabel>It is not Emailable</defaultConnectorLabel>
+        <rules>
+            <name>OutcomeIs_IsEmailable</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ProgramScript_GetRecord.Email_Body__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>ProgramScript_GetRecord.Email_Subject__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Contact__r.Email</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>EmailTextCollection_Assignment</targetReference>
+            </connector>
+            <label>It is Emailable</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
     <formulas>
         <name>EmailBody_Formula</name>
@@ -80,11 +119,11 @@
     <recordLookups>
         <name>ProgramScript_GetRecord</name>
         <label>ProgramScript GetRecord</label>
-        <locationX>308</locationX>
+        <locationX>374</locationX>
         <locationY>288</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>EmailTextCollection_Assignment</targetReference>
+            <targetReference>Emailable_Decision</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -105,6 +144,19 @@
         <object>Program_Script__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordUpdates>
+        <name>Outreach_UpdateRecord</name>
+        <label>Outreach UpdateRecord</label>
+        <locationX>242</locationX>
+        <locationY>768</locationY>
+        <inputAssignments>
+            <field>Email_Status__c</field>
+            <value>
+                <stringValue>Sent</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
     <start>
         <locationX>50</locationX>
         <locationY>0</locationY>
@@ -114,7 +166,7 @@
             <field>Email_Status__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Sent</stringValue>
+                <stringValue>Send</stringValue>
             </value>
         </filters>
         <object>Program_Outreach__c</object>
