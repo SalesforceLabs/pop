@@ -30,3 +30,8 @@ orgs:
         dev:
             config_file: orgs/dev.json
             days: 30
+            
+        dev_namespaced:
+            config_file: orgs/dev.json
+            days: 30
+            namespaced: True

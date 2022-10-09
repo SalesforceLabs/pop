@@ -24,10 +24,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Bad_Incorrect_Phone__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Comments__c</field>
             </layoutItems>
             <layoutItems>
@@ -65,10 +61,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Minutes_In_Progress__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>No_Longer_With_Company__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

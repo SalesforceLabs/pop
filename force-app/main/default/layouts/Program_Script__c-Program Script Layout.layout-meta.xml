@@ -21,10 +21,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Langauge__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
                 <field>Decision_Available_To_Speak__c</field>
             </layoutItems>
             <layoutItems>
@@ -41,7 +37,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Instruction_Awareness__c</field>
+                <field>Instruction_Aware__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -49,7 +45,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Instruction_Close_Did_Answer__c</field>
+                <field>Instruction_Close_Available__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -94,10 +90,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Talk_Track_Hello__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Talk_Track_Hello_And_Conversation_Ends__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
