@@ -77,7 +77,7 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>$Record.Email__c</leftValueReference>
+                <leftValueReference>$Record.pop__Email__c</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
