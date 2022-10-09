@@ -64,10 +64,8 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Contact.CNTC_FIRST_NAME</fields>
         <fields>Contact.NAME</fields>
         <fields>Status__c</fields>
-        <fields>Account.ACC_NAME</fields>
         <fields>Status_Reason__c</fields>
         <fields>Unconnected_Reason__c</fields>
         <relatedList>Program_Outreach__c.Program__c</relatedList>
