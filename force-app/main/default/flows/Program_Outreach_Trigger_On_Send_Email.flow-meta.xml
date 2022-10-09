@@ -93,7 +93,7 @@
     <formulas>
         <name>EmailBody_Formula</name>
         <dataType>String</dataType>
-        <expression>SUBSTITUTE({!ProgramScript_GetRecord.Email_Body__c},&quot;{{{First_Name}}}&quot;,{!$Record.First_Name__c})</expression>
+        <expression>SUBSTITUTE({!ProgramScript_GetRecord.pop__Email_Body__c},&quot;{{{First_Name}}}&quot;,{!$Record.pop__First_Name__c})</expression>
     </formulas>
     <interviewLabel>Program Outreach: Trigger: Send Email {!$Flow.CurrentDateTime}</interviewLabel>
     <isOverridable>true</isOverridable>
