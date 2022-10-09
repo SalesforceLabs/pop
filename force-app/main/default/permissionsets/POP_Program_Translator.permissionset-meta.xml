@@ -10,6 +10,31 @@
     </customPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Program_Script__c.Decision_Available_To_Speak__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Program_Script__c.Decision_Aware_of_Program__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Program_Script__c.Decision_Outreach_Answered__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Program_Script__c.Decision_Send_Email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Program_Script__c.Email_Body__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Program_Script__c.Instruction_Aware__c</field>
         <readable>true</readable>
     </fieldPermissions>

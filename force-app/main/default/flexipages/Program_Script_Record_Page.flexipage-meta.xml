@@ -165,7 +165,7 @@
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Instruction_Awareness__c</fieldItem>
+                <fieldItem>Record.Instruction_Aware__c</fieldItem>
                 <identifier>RecordInstruction_Awareness_cField</identifier>
             </fieldInstance>
         </itemInstances>
@@ -181,7 +181,7 @@
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Instruction_Close_Did_Answer__c</fieldItem>
+                <fieldItem>Record.Instruction_Close_Available__c</fieldItem>
                 <identifier>RecordInstruction_Close_Did_Answer_cField</identifier>
             </fieldInstance>
         </itemInstances>
@@ -299,6 +299,44 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <name>Facet-043f2549-26c4-4f39-940c-7e11c5ddb7c0</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Email_Body__c</fieldItem>
+                <identifier>RecordEmail_Body_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-9633a82a-771c-40fe-b816-87ba6935399f</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-043f2549-26c4-4f39-940c-7e11c5ddb7c0</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column11</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-9633a82a-771c-40fe-b816-87ba6935399f</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column12</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-b6674fca-6566-4b48-ae92-17bcde0c95d3</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldItem>Record.CreatedById</fieldItem>
@@ -411,6 +449,27 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
                 <identifier>flexipage_fieldSection4</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!$Permission.CustomPermission.Can_Translate}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>true</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>columns</name>
+                    <value>Facet-b6674fca-6566-4b48-ae92-17bcde0c95d3</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>Email Script</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <identifier>flexipage_fieldSection6</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!$Permission.CustomPermission.Can_Translate}</leftValue>
