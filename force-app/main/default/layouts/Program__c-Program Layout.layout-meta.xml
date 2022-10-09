@@ -64,7 +64,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Contact.NAME</fields>
+        <fields>Contact__c</fields>
         <fields>Status__c</fields>
         <fields>Status_Reason__c</fields>
         <fields>Unconnected_Reason__c</fields>
@@ -98,7 +98,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h8N000000NOsI</masterLabel>
+        <masterLabel>00h8H000000OVM7</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
