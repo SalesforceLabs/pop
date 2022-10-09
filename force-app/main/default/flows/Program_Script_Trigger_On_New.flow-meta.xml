@@ -5,7 +5,7 @@
     <formulas>
         <name>Name_TextFormula</name>
         <dataType>String</dataType>
-        <expression>LEFT({!TEXT($Record.Language__c)}+&apos; | &apos;+{!$Record.Program__r.Name},80)</expression>
+        <expression>LEFT({!TEXT($Record.%%%NAMESPACE%%%Language__c)}+&apos; | &apos;+{!$Record.%%%NAMESPACE%%%Program__r.Name},80)</expression>
     </formulas>
     <interviewLabel>Program Script: Trigger: On New {!$Flow.CurrentDateTime}</interviewLabel>
     <isOverridable>true</isOverridable>

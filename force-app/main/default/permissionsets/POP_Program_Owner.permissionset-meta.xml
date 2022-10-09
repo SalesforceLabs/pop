@@ -80,6 +80,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Program_Outreach__c.Email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Program_Outreach__c.Escalated__c</field>
         <readable>true</readable>
     </fieldPermissions>

@@ -39,7 +39,7 @@
         <inputAssignments>
             <field>Indexed_Region__c</field>
             <value>
-                <elementReference>$Record.Indexed_Region__c</elementReference>
+                <elementReference>$Record.Region__c</elementReference>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>

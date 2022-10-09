@@ -54,6 +54,12 @@
         </itemInstances>
         <itemInstances>
             <fieldInstance>
+                <fieldItem>Record.Email__c</fieldItem>
+                <identifier>RecordEmail_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
                 <fieldItem>Record.Language__c</fieldItem>
                 <identifier>RecordLanguage_cField</identifier>
             </fieldInstance>

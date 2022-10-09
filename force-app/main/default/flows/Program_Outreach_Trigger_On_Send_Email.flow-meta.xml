@@ -46,7 +46,7 @@
             <assignToReference>Email_TextCollection</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>$Record.Contact__r.Email</elementReference>
+                <elementReference>$Record.Email__c</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -77,7 +77,7 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>$Record.Contact__r.Email</leftValueReference>
+                <leftValueReference>$Record.Email__c</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>

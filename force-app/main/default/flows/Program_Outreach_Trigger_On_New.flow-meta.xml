@@ -64,6 +64,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Email__c</field>
+            <value>
+                <elementReference>Contact_GetRecord.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>First_Name__c</field>
             <value>
                 <elementReference>Contact_GetRecord.FirstName</elementReference>

@@ -9,5 +9,5 @@
     <openType>replace</openType>
     <protected>false</protected>
     <requireRowSelection>true</requireRowSelection>
-    <url>/flow/Program_Outreach_Screen_Add_to_Program</url>
+    <url>/flow/%%%NAMESPACE%%%Program_Outreach_Screen_Add_to_Program</url>
 </WebLink>

@@ -80,6 +80,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Program_Outreach__c.Email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Program_Outreach__c.Escalated__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -101,6 +106,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Program_Outreach__c.Indexed_Region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Program_Outreach__c.Minutes_In_Progress__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -249,9 +259,9 @@
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
+        <modifyAllRecords>true</modifyAllRecords>
         <object>Program_Outreach__c</object>
-        <viewAllRecords>false</viewAllRecords>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
