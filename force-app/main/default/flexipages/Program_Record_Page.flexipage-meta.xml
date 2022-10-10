@@ -58,20 +58,26 @@
                 <identifier>RecordNameField</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-30fc265a-b423-4eed-8ea3-f6cf798c4187</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldItem>Record.Active__c</fieldItem>
                 <identifier>RecordActive_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <name>Facet-30fc265a-b423-4eed-8ea3-f6cf798c4187</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldItem>Record.Close_Account_on_Connected__c</fieldItem>
                 <identifier>RecordClose_Account_on_Connected_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Exclude_Send_Email_Script__c</fieldItem>
+                <identifier>RecordExclude_Send_Email_Script_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-a6905f60-d845-4cb2-ad39-aae4ea178eb9</name>

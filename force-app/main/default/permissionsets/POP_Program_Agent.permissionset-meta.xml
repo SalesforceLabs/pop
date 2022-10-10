@@ -199,6 +199,11 @@
         <field>Program__c.Close_Account_on_Connected__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Program__c.Exclude_Send_Email_Script__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>POP Program Agent</label>
     <objectPermissions>

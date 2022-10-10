@@ -26,6 +26,11 @@
                 <default>false</default>
                 <label>Not Sent-Declined</label>
             </value>
+            <value>
+                <fullName>Not Sent</fullName>
+                <default>false</default>
+                <label>Not Sent</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

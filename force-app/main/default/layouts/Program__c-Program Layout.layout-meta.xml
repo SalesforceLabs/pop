@@ -19,6 +19,10 @@
                 <behavior>Edit</behavior>
                 <field>Close_Account_on_Connected__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Exclude_Send_Email_Script__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

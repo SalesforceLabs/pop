@@ -20,7 +20,7 @@
     <assignments>
         <name>EmailDeclined_Assignment</name>
         <label>EmailDeclined Assignment</label>
-        <locationX>842</locationX>
+        <locationX>1106</locationX>
         <locationY>2894</locationY>
         <assignmentItems>
             <assignToReference>ProgramOutreach_GetRecord.Email_Status__c</assignToReference>
@@ -34,9 +34,25 @@
         </connector>
     </assignments>
     <assignments>
+        <name>EmailExcluded_Assignment</name>
+        <label>EmailExcluded Assignment</label>
+        <locationX>842</locationX>
+        <locationY>2894</locationY>
+        <assignmentItems>
+            <assignToReference>ProgramOutreach_GetRecord.Email_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Not Sent</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>CloseAvailable_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>LanguageRegionDefault_Assignment</name>
         <label>LanguageRegionDefault Assignment</label>
-        <locationX>377</locationX>
+        <locationX>435</locationX>
         <locationY>638</locationY>
         <assignmentItems>
             <assignToReference>LANGUAGE</assignToReference>
@@ -59,7 +75,7 @@
     <assignments>
         <name>OutreachAware_Assignment</name>
         <label>OutreachAware Assignment</label>
-        <locationX>578</locationX>
+        <locationX>710</locationX>
         <locationY>2438</locationY>
         <assignmentItems>
             <assignToReference>ProgramOutreach_GetRecord.Awareness__c</assignToReference>
@@ -75,7 +91,7 @@
     <assignments>
         <name>OutreachNotAware_Assignment</name>
         <label>OutreachNotAware Assignment</label>
-        <locationX>842</locationX>
+        <locationX>974</locationX>
         <locationY>2438</locationY>
         <assignmentItems>
             <assignToReference>ProgramOutreach_GetRecord.Awareness__c</assignToReference>
@@ -91,7 +107,7 @@
     <assignments>
         <name>OutreachOwner_Assignment</name>
         <label>OutreachOwner Assignment</label>
-        <locationX>1095</locationX>
+        <locationX>1326</locationX>
         <locationY>1358</locationY>
         <assignmentItems>
             <assignToReference>ProgramOutreach_GetRecord.Status__c</assignToReference>
@@ -114,7 +130,7 @@
     <assignments>
         <name>OutreachUpdateAvailable_Assignment</name>
         <label>OutreachUpdateAvailable Assignment</label>
-        <locationX>710</locationX>
+        <locationX>842</locationX>
         <locationY>3350</locationY>
         <assignmentItems>
             <assignToReference>ProgramOutreach_GetRecord.Sentiment__c</assignToReference>
@@ -172,7 +188,7 @@
     <assignments>
         <name>OutreachUpdateConnected_Assignment</name>
         <label>OutreachUpdateConnected Assignment</label>
-        <locationX>710</locationX>
+        <locationX>842</locationX>
         <locationY>2078</locationY>
         <assignmentItems>
             <assignToReference>ProgramOutreach_GetRecord.Status__c</assignToReference>
@@ -188,7 +204,7 @@
     <assignments>
         <name>OutreachUpdateNotAvailable_Assignment</name>
         <label>OutreachUpdateNotAvailable Assignment</label>
-        <locationX>1095</locationX>
+        <locationX>1326</locationX>
         <locationY>4202</locationY>
         <assignmentItems>
             <assignToReference>ProgramOutreach_GetRecord.Comments__c</assignToReference>
@@ -254,7 +270,7 @@
     <decisions>
         <name>CanUserRun_Decision</name>
         <label>Can Current User Run This?</label>
-        <locationX>917</locationX>
+        <locationX>1078</locationX>
         <locationY>278</locationY>
         <defaultConnector>
             <targetReference>CannotRunFlow_Screen</targetReference>
@@ -279,7 +295,7 @@
     <decisions>
         <name>ContactIsNull_Decision</name>
         <label>Was a Contact Found?</label>
-        <locationX>704</locationX>
+        <locationX>820</locationX>
         <locationY>1238</locationY>
         <defaultConnector>
             <targetReference>OutreachOwner_Assignment</targetReference>
@@ -304,7 +320,7 @@
     <decisions>
         <name>OutreachAnswer_Decision</name>
         <label>Was Outreach Answered?</label>
-        <locationX>1095</locationX>
+        <locationX>1326</locationX>
         <locationY>1718</locationY>
         <defaultConnector>
             <targetReference>OutreachNotAvailable_Screen</targetReference>
@@ -329,7 +345,7 @@
     <decisions>
         <name>OutreachAvailble_Decision</name>
         <label>Was Outreach Available?</label>
-        <locationX>908</locationX>
+        <locationX>1106</locationX>
         <locationY>1958</locationY>
         <defaultConnector>
             <targetReference>OutreachNotAvailable_Screen</targetReference>
@@ -354,7 +370,7 @@
     <decisions>
         <name>OutreachAware_Decision</name>
         <label>Was Outreach Aware of Program?</label>
-        <locationX>710</locationX>
+        <locationX>842</locationX>
         <locationY>2318</locationY>
         <defaultConnector>
             <targetReference>OutreachNotAware_Assignment</targetReference>
@@ -379,7 +395,7 @@
     <decisions>
         <name>ProgramScript_Decision</name>
         <label>Is There a Published Script?</label>
-        <locationX>377</locationX>
+        <locationX>435</locationX>
         <locationY>878</locationY>
         <defaultConnector>
             <targetReference>ReadyToCall_Screen</targetReference>
@@ -404,7 +420,7 @@
     <decisions>
         <name>SendEmailConnected_Decision</name>
         <label>SendEmailConnected Decision</label>
-        <locationX>710</locationX>
+        <locationX>842</locationX>
         <locationY>2774</locationY>
         <defaultConnector>
             <targetReference>EmailDeclined_Assignment</targetReference>
@@ -431,6 +447,21 @@
                 <targetReference>EmailAccepted_Assignment</targetReference>
             </connector>
             <label>Send Email</label>
+        </rules>
+        <rules>
+            <name>OutcomeIs_EmailIsExcluded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Program_GetRecord.Exclude_Send_Email_Script__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>EmailExcluded_Assignment</targetReference>
+            </connector>
+            <label>Email is Excluded</label>
         </rules>
     </decisions>
     <description>Main Program Outreach Flow</description>
@@ -492,7 +523,7 @@
     <recordLookups>
         <name>Program_GetRecord</name>
         <label>Program GetRecord</label>
-        <locationX>377</locationX>
+        <locationX>435</locationX>
         <locationY>398</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -513,7 +544,7 @@
     <recordLookups>
         <name>ProgramOutreach_GetRecord</name>
         <label>ProgramOutreach GetRecord</label>
-        <locationX>704</locationX>
+        <locationX>820</locationX>
         <locationY>1118</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -562,7 +593,7 @@
     <recordLookups>
         <name>ProgramScript_GetRecord</name>
         <label>ProgramScript GetRecord</label>
-        <locationX>377</locationX>
+        <locationX>435</locationX>
         <locationY>758</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -597,7 +628,7 @@
     <recordUpdates>
         <name>OutreachClose_UpdateRecord</name>
         <label>OutreachClose UpdateRecord</label>
-        <locationX>710</locationX>
+        <locationX>842</locationX>
         <locationY>3470</locationY>
         <connector>
             <targetReference>Finish_Screen</targetReference>
@@ -607,7 +638,7 @@
     <recordUpdates>
         <name>ProgramOutreachOwner_UpdateRecord</name>
         <label>ProgramOutreachOwner UpdateRecord</label>
-        <locationX>1095</locationX>
+        <locationX>1326</locationX>
         <locationY>1478</locationY>
         <connector>
             <targetReference>OutreachInfo_Screen</targetReference>
@@ -617,7 +648,7 @@
     <screens>
         <name>CannotRunFlow_Screen</name>
         <label>CannotRunFlow Screen</label>
-        <locationX>1458</locationX>
+        <locationX>1722</locationX>
         <locationY>398</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -633,7 +664,7 @@
     <screens>
         <name>CloseAvailable_Screen</name>
         <label>CloseAvailable Screen</label>
-        <locationX>710</locationX>
+        <locationX>842</locationX>
         <locationY>3230</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -699,7 +730,7 @@
     <screens>
         <name>CloseNotAvailable_Screen</name>
         <label>CloseNotAvailable Screen</label>
-        <locationX>1095</locationX>
+        <locationX>1326</locationX>
         <locationY>4082</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -784,7 +815,7 @@
     <screens>
         <name>EmailDeclined_Screen</name>
         <label>EmailDeclined Screen</label>
-        <locationX>842</locationX>
+        <locationX>1106</locationX>
         <locationY>3014</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -803,7 +834,7 @@
     <screens>
         <name>Finish_Screen</name>
         <label>Finish Screen</label>
-        <locationX>710</locationX>
+        <locationX>842</locationX>
         <locationY>3590</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -823,7 +854,7 @@
     <screens>
         <name>Hello_Screen</name>
         <label>Hello Screen</label>
-        <locationX>710</locationX>
+        <locationX>842</locationX>
         <locationY>2198</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -974,7 +1005,7 @@
     <screens>
         <name>OutreachAvailable_Screen</name>
         <label>OutreachAvailable Screen</label>
-        <locationX>908</locationX>
+        <locationX>1106</locationX>
         <locationY>1838</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -1091,7 +1122,7 @@
     <screens>
         <name>OutreachAware_Screen</name>
         <label>OutreachAware Screen</label>
-        <locationX>578</locationX>
+        <locationX>710</locationX>
         <locationY>2558</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -1140,6 +1171,16 @@
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Program_GetRecord.Exclude_Send_Email_Script__c</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
@@ -1147,7 +1188,7 @@
     <screens>
         <name>OutreachInfo_Screen</name>
         <label>OutreachInfo Screen</label>
-        <locationX>1095</locationX>
+        <locationX>1326</locationX>
         <locationY>1598</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -1278,7 +1319,7 @@
     <screens>
         <name>OutreachNotAvailable_Screen</name>
         <label>OutreachNotAvailable Screen</label>
-        <locationX>1095</locationX>
+        <locationX>1326</locationX>
         <locationY>3962</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -1297,7 +1338,7 @@
     <screens>
         <name>OutreachNotAware_Screen</name>
         <label>OutreachNotAware Screen</label>
-        <locationX>842</locationX>
+        <locationX>974</locationX>
         <locationY>2558</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -1341,6 +1382,16 @@
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Program_GetRecord.Exclude_Send_Email_Script__c</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
@@ -1348,7 +1399,7 @@
     <screens>
         <name>ReadyToCall_Screen</name>
         <label>ReadyToCall Screen</label>
-        <locationX>704</locationX>
+        <locationX>820</locationX>
         <locationY>998</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -1367,7 +1418,7 @@
     <screens>
         <name>SelectLanguageRegion_Screen</name>
         <label>SelectLanguageRegion Screen</label>
-        <locationX>377</locationX>
+        <locationX>435</locationX>
         <locationY>518</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -1418,7 +1469,7 @@
         <showHeader>false</showHeader>
     </screens>
     <start>
-        <locationX>791</locationX>
+        <locationX>952</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>CanRunScript_Subflow</targetReference>
@@ -1428,7 +1479,7 @@
     <subflows>
         <name>CanRunScript_Subflow</name>
         <label>CanRunScript Subflow</label>
-        <locationX>917</locationX>
+        <locationX>1078</locationX>
         <locationY>158</locationY>
         <connector>
             <targetReference>CanUserRun_Decision</targetReference>
