@@ -3,7 +3,7 @@
     <actionCalls>
         <name>SendEmail_Action</name>
         <label>SendEmail Action</label>
-        <locationX>242</locationX>
+        <locationX>440</locationX>
         <locationY>648</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
@@ -40,7 +40,7 @@
     <assignments>
         <name>EmailTextCollection_Assignment</name>
         <label>EmailTextCollection Assignment</label>
-        <locationX>242</locationX>
+        <locationX>440</locationX>
         <locationY>528</locationY>
         <assignmentItems>
             <assignToReference>Email_TextCollection</assignToReference>
@@ -56,9 +56,27 @@
     <decisions>
         <name>Emailable_Decision</name>
         <label>Is this Emailable?</label>
-        <locationX>374</locationX>
+        <locationX>440</locationX>
         <locationY>408</locationY>
+        <defaultConnector>
+            <targetReference>OutreachNotEmailable_UpdateRecord</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>It is not Emailable</defaultConnectorLabel>
+        <rules>
+            <name>OutcomeIs_EmailIsExcluded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Program__r.Exclude_Send_Email_Script__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OutreachEmailExcluded_UpdateRecord</targetReference>
+            </connector>
+            <label>Email is Excluded</label>
+        </rules>
         <rules>
             <name>OutcomeIs_IsEmailable</name>
             <conditionLogic>and</conditionLogic>
@@ -120,7 +138,7 @@
     <recordLookups>
         <name>ProgramScript_GetRecord</name>
         <label>ProgramScript GetRecord</label>
-        <locationX>374</locationX>
+        <locationX>440</locationX>
         <locationY>288</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -148,12 +166,38 @@
     <recordUpdates>
         <name>Outreach_UpdateRecord</name>
         <label>Outreach UpdateRecord</label>
-        <locationX>242</locationX>
+        <locationX>440</locationX>
         <locationY>768</locationY>
         <inputAssignments>
             <field>Email_Status__c</field>
             <value>
                 <stringValue>Sent</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>OutreachEmailExcluded_UpdateRecord</name>
+        <label>OutreachEmailExcluded UpdateRecord</label>
+        <locationX>176</locationX>
+        <locationY>528</locationY>
+        <inputAssignments>
+            <field>Email_Status__c</field>
+            <value>
+                <stringValue>Not Sent</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>OutreachNotEmailable_UpdateRecord</name>
+        <label>OutreachNotEmailable UpdateRecord</label>
+        <locationX>704</locationX>
+        <locationY>528</locationY>
+        <inputAssignments>
+            <field>Email_Status__c</field>
+            <value>
+                <stringValue>Not Sent</stringValue>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
