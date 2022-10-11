@@ -181,6 +181,13 @@
                 <elementReference>EscalateAvailable_Checkbox</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ProgramOutreach_GetRecord.Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Outreach_Email.value</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>OutreachClose_UpdateRecord</targetReference>
         </connector>
@@ -808,6 +815,20 @@
             <name>TalkTrackEmailAccepted_Text</name>
             <fieldText>&lt;p&gt;{!ProgramScript_GetRecord.Talk_Track_Email_Accepted__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Outreach_Email</name>
+            <extensionName>flowruntime:email</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>value</name>
+                <value>
+                    <elementReference>ProgramOutreach_GetRecord.Email__c</elementReference>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
