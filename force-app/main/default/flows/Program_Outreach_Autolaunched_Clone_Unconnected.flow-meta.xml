@@ -107,7 +107,7 @@
         <limit>5000</limit>
         <sortOptions>
             <doesPutEmptyStringAndNullFirst>false</doesPutEmptyStringAndNullFirst>
-            <sortField>pop__Closed_Date_Time__c</sortField>
+            <sortField>%%%NAMESPACED_ORG%%%Closed_Date_Time__c</sortField>
             <sortOrder>Asc</sortOrder>
         </sortOptions>
     </collectionProcessors>

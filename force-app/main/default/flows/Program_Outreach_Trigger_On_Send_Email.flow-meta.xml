@@ -66,7 +66,7 @@
             <name>OutcomeIs_EmailIsExcluded</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.pop__Program__r.pop__Exclude_Send_Email_Script__c</leftValueReference>
+                <leftValueReference>$Record.%%%NAMESPACED_ORG%%%Program__r.%%%NAMESPACED_ORG%%%Exclude_Send_Email_Script__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -95,7 +95,7 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>$Record.pop__Email__c</leftValueReference>
+                <leftValueReference>$Record.%%%NAMESPACED_ORG%%%Email__c</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -111,7 +111,7 @@
     <formulas>
         <name>EmailBody_Formula</name>
         <dataType>String</dataType>
-        <expression>SUBSTITUTE({!ProgramScript_GetRecord.pop__Email_Body__c},&quot;{{{First_Name}}}&quot;,{!$Record.pop__First_Name__c})</expression>
+        <expression>SUBSTITUTE({!ProgramScript_GetRecord.%%%NAMESPACED_ORG%%%Email_Body__c},&quot;{{{First_Name}}}&quot;,{!$Record.%%%NAMESPACED_ORG%%%First_Name__c})</expression>
     </formulas>
     <interviewLabel>Program Outreach: Trigger: Send Email {!$Flow.CurrentDateTime}</interviewLabel>
     <isOverridable>true</isOverridable>
