@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Exclude_Send_Email_Script__c</fullName>
-    <defaultValue>true</defaultValue>
+    <defaultValue>false</defaultValue>
     <description>When checked, the agent will not see the portion of script regarding sending email and an email will not be sent.</description>
     <externalId>false</externalId>
     <inlineHelpText>When checked, the agent will not see the portion of script regarding sending email and an email will not be sent.</inlineHelpText>
