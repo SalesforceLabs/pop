@@ -54,6 +54,18 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Email_Body__c</field>
+            <value>
+                <elementReference>Email_Body</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Email_Subject__c</field>
+            <value>
+                <elementReference>Email_Subject</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Instruction_Aware__c</field>
             <value>
                 <elementReference>Instruction_Awareness</elementReference>
@@ -167,6 +179,11 @@
     </start>
     <status>Active</status>
     <textTemplates>
+        <name>Email_Body</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hello &lt;strong&gt;{{{First_Name}}}&lt;/strong&gt;,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thank you for the interest in our program. Please see the links included. &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thank you!&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
         <name>Instruction_Awareness</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;IF the conversation ends here and you don&apos;t get a &quot;Yes&quot; or &quot;No&quot;, select &quot;Previous&quot; and change &quot;Did the customer say yes?&quot; on the previous screen to &quot;No&quot;.&lt;/strong&gt;&lt;/p&gt;</text>
@@ -274,6 +291,16 @@
         <isOutput>false</isOutput>
         <value>
             <stringValue>Send Email?</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>Email_Subject</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>Information About Our Program</stringValue>
         </value>
     </variables>
     <variables>
