@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>55.0</apiVersion>
+    <decisions>
+        <name>ProgramScriptDefaultSubflow_Decision</name>
+        <label>ProgramScriptDefaultSubflow Decision</label>
+        <locationX>182</locationX>
+        <locationY>278</locationY>
+        <defaultConnectorLabel>No Errors</defaultConnectorLabel>
+        <rules>
+            <name>OutcomeIs_ProgramScriptDefaultSubflowHasErrors</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ProgramScriptDefault_Subflow.isSuccess</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GeneralError_Subflow</targetReference>
+            </connector>
+            <label>Program Script Default Subflow Has Errors</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
     <interviewLabel>Program Script: Screen: {!$Flow.CurrentDateTime}</interviewLabel>
     <isOverridable>true</isOverridable>
@@ -25,7 +47,7 @@
     </processMetadataValues>
     <processType>Flow</processType>
     <start>
-        <locationX>50</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>ProgramScriptDefault_Subflow</targetReference>
@@ -33,10 +55,26 @@
     </start>
     <status>Active</status>
     <subflows>
+        <name>GeneralError_Subflow</name>
+        <label>GeneralError Subflow</label>
+        <locationX>50</locationX>
+        <locationY>398</locationY>
+        <flowName>POP_Screen_General_Error</flowName>
+        <inputAssignments>
+            <name>errors</name>
+            <value>
+                <elementReference>ProgramScriptDefault_Subflow.errors</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
         <name>ProgramScriptDefault_Subflow</name>
         <label>ProgramScriptDefault Subflow</label>
-        <locationX>176</locationX>
+        <locationX>182</locationX>
         <locationY>158</locationY>
+        <connector>
+            <targetReference>ProgramScriptDefaultSubflow_Decision</targetReference>
+        </connector>
         <flowName>Program_Script_Autolaunched_Default_Script</flowName>
         <inputAssignments>
             <name>recordId</name>
@@ -44,6 +82,7 @@
                 <elementReference>recordId</elementReference>
             </value>
         </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </subflows>
     <variables>
         <name>recordId</name>
