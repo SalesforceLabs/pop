@@ -138,6 +138,14 @@
         <name>ProgramActive_RecordChoiceSet</name>
         <dataType>String</dataType>
         <displayField>Name</displayField>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Active__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
         <object>Program__c</object>
         <valueField>Id</valueField>
     </dynamicChoiceSets>
