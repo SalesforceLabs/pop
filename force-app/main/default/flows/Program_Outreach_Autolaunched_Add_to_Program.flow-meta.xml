@@ -4,45 +4,77 @@
     <assignments>
         <name>ContactIdMissingFields_Assignment</name>
         <label>ContactIdMissingFields Assignment</label>
-        <locationX>528</locationX>
-        <locationY>638</locationY>
+        <locationX>792</locationX>
+        <locationY>1310</locationY>
         <assignmentItems>
             <assignToReference>ContactMissingFields_RecordCollection</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Contact_GetRecord</elementReference>
+                <elementReference>Contacts_Loop</elementReference>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Ids_Loop</targetReference>
+            <targetReference>Contacts_Loop</targetReference>
         </connector>
     </assignments>
     <assignments>
-        <name>ContactWithOutreacht_Assignment</name>
-        <label>ContactWithOutreacht Assignment</label>
-        <locationX>264</locationX>
-        <locationY>638</locationY>
+        <name>ContactWithOutreach_Assignment</name>
+        <label>ContactWithOutreach Assignment</label>
+        <locationX>528</locationX>
+        <locationY>1310</locationY>
         <assignmentItems>
             <assignToReference>ContactWithOutreach_RecordCollection</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Contact_GetRecord</elementReference>
+                <elementReference>Contacts_Loop</elementReference>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Ids_Loop</targetReference>
+            <targetReference>Contacts_Loop</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>FoundReset_Assignment</name>
+        <label>FoundReset Assignment</label>
+        <locationX>792</locationX>
+        <locationY>518</locationY>
+        <assignmentItems>
+            <assignToReference>Found</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>ProgramOutreach_Loop</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>FoundTrue_Assignment</name>
+        <label>FoundTrue Assignment</label>
+        <locationX>1056</locationX>
+        <locationY>878</locationY>
+        <assignmentItems>
+            <assignToReference>Found</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>ProgramOutreach_Loop</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>ProgramOutreachNew_Assignment</name>
         <label>ProgramOutreachNew Assignment</label>
-        <locationX>792</locationX>
-        <locationY>638</locationY>
+        <locationX>1056</locationX>
+        <locationY>1310</locationY>
         <assignmentItems>
             <assignToReference>ProgramOutreachNew_Record.Contact__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Ids_Loop</elementReference>
+                <elementReference>Contacts_Loop.Id</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -66,8 +98,8 @@
     <assignments>
         <name>ProgramOutreachNewCollection_Assignment</name>
         <label>ProgramOutreachNewCollection Assignment</label>
-        <locationX>792</locationX>
-        <locationY>758</locationY>
+        <locationX>1056</locationX>
+        <locationY>1430</locationY>
         <assignmentItems>
             <assignToReference>ProgramOutreachNew_RecordCollection</assignToReference>
             <operator>Add</operator>
@@ -76,52 +108,52 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Ids_Loop</targetReference>
+            <targetReference>Contacts_Loop</targetReference>
         </connector>
     </assignments>
     <decisions>
         <name>ProgramOutreachCreate_Decision</name>
         <label>ProgramOutreachCreate Decision</label>
-        <locationX>528</locationX>
-        <locationY>518</locationY>
+        <locationX>792</locationX>
+        <locationY>1190</locationY>
         <defaultConnector>
             <targetReference>ProgramOutreachNew_Assignment</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>We Can Create</defaultConnectorLabel>
         <rules>
-            <name>OutcomeIsOutreachFound</name>
+            <name>OutcomeIs_OutreachFound</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>ProgramOutreach_GetRecord</leftValueReference>
-                <operator>IsNull</operator>
+                <leftValueReference>Found</leftValueReference>
+                <operator>EqualTo</operator>
                 <rightValue>
-                    <booleanValue>false</booleanValue>
+                    <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>ContactWithOutreacht_Assignment</targetReference>
+                <targetReference>ContactWithOutreach_Assignment</targetReference>
             </connector>
-            <label>We found an outreach</label>
+            <label>Contact Already Has Outreach</label>
         </rules>
         <rules>
-            <name>OutcomeIs_ContactDoesNotHaveRequredFields</name>
+            <name>OutcomeIs_ContactMissingFields</name>
             <conditionLogic>or</conditionLogic>
             <conditions>
-                <leftValueReference>Contact_GetRecord.FirstName</leftValueReference>
+                <leftValueReference>Contacts_Loop.FirstName</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Contact_GetRecord.Phone</leftValueReference>
+                <leftValueReference>Contacts_Loop.AccountId</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Contact_GetRecord.AccountId</leftValueReference>
+                <leftValueReference>Contacts_Loop.Phone</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -130,7 +162,47 @@
             <connector>
                 <targetReference>ContactIdMissingFields_Assignment</targetReference>
             </connector>
-            <label>Contact Does Not Have Required Fields</label>
+            <label>Contact Has Missing Fields</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>ProgramOutreachFound_Decision</name>
+        <label>ProgramOutreachFound Decision</label>
+        <locationX>1100</locationX>
+        <locationY>758</locationY>
+        <defaultConnector>
+            <targetReference>ProgramOutreach_Loop</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Program Outreach Is A Different Contact</defaultConnectorLabel>
+        <rules>
+            <name>OutcomeIs_AlreadyFound</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Found</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ProgramOutreach_Loop</targetReference>
+            </connector>
+            <label>Already Found</label>
+        </rules>
+        <rules>
+            <name>OutcomeIs_ProgramOutreachFound</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ProgramOutreach_Loop.Contact__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Contacts_Loop.Id</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>FoundTrue_Assignment</targetReference>
+            </connector>
+            <label>Program Outreach Found</label>
         </rules>
     </decisions>
     <description>Pass in a lsit of contact ids and program id to add as outreaches to a program. They will not be added if they already are in program or fields are missing.</description>
@@ -139,17 +211,31 @@
     <isOverridable>true</isOverridable>
     <label>Program Outreach: Autolaunched: Add to Program</label>
     <loops>
-        <name>Ids_Loop</name>
-        <label>Ids Loop</label>
+        <name>Contacts_Loop</name>
+        <label>Contacts Loop</label>
         <locationX>176</locationX>
-        <locationY>158</locationY>
-        <collectionReference>ContactIds</collectionReference>
+        <locationY>398</locationY>
+        <collectionReference>Contact_GetRecords</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
-            <targetReference>Contact_GetRecord</targetReference>
+            <targetReference>FoundReset_Assignment</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
             <targetReference>ProgramOutreachNew_CreateRecords</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>ProgramOutreach_Loop</name>
+        <label>ProgramOutreach Loop</label>
+        <locationX>792</locationX>
+        <locationY>638</locationY>
+        <collectionReference>ProgramOutreach_GetRecords</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>ProgramOutreachFound_Decision</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>ProgramOutreachCreate_Decision</targetReference>
         </noMoreValuesConnector>
     </loops>
     <processMetadataValues>
@@ -175,45 +261,45 @@
         <name>ProgramOutreachNew_CreateRecords</name>
         <label>ProgramOutreachNew CreateRecords</label>
         <locationX>176</locationX>
-        <locationY>1070</locationY>
+        <locationY>1742</locationY>
         <inputReference>ProgramOutreachNew_RecordCollection</inputReference>
     </recordCreates>
     <recordLookups>
-        <name>Contact_GetRecord</name>
-        <label>Contact GetRecord</label>
-        <locationX>528</locationX>
-        <locationY>278</locationY>
+        <name>Contact_GetRecords</name>
+        <label>Contact GetRecords</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>ProgramOutreach_GetRecord</targetReference>
+            <targetReference>ProgramOutreach_GetRecords</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
-            <operator>EqualTo</operator>
+            <operator>In</operator>
             <value>
-                <elementReference>Ids_Loop</elementReference>
+                <elementReference>ContactIds</elementReference>
             </value>
         </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Contact</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>ProgramOutreach_GetRecord</name>
-        <label>ProgramOutreach GetRecord</label>
-        <locationX>528</locationX>
-        <locationY>398</locationY>
+        <name>ProgramOutreach_GetRecords</name>
+        <label>ProgramOutreach GetRecords</label>
+        <locationX>176</locationX>
+        <locationY>278</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>ProgramOutreachCreate_Decision</targetReference>
+            <targetReference>Contacts_Loop</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Contact__c</field>
-            <operator>EqualTo</operator>
+            <operator>In</operator>
             <value>
-                <elementReference>Ids_Loop</elementReference>
+                <elementReference>ContactIds</elementReference>
             </value>
         </filters>
         <filters>
@@ -223,7 +309,7 @@
                 <elementReference>ProgramId</elementReference>
             </value>
         </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Program_Outreach__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
@@ -231,7 +317,7 @@
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Ids_Loop</targetReference>
+            <targetReference>Contact_GetRecords</targetReference>
         </connector>
     </start>
     <status>Active</status>
@@ -271,6 +357,16 @@
         <isInput>false</isInput>
         <isOutput>true</isOutput>
         <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <name>Found</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
     </variables>
     <variables>
         <name>ProgramId</name>
