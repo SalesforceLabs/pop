@@ -103,6 +103,16 @@
                 <identifier>RecordExclude_Send_Email_Script_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Allow_Add_to_Outreach_Program__c</fieldItem>
+                <identifier>RecordAllow_Add_to_Outreach_Program_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-a6905f60-d845-4cb2-ad39-aae4ea178eb9</name>
         <type>Facet</type>
     </flexiPageRegions>

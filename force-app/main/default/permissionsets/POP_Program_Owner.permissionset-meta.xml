@@ -231,6 +231,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Program__c.Allow_Add_to_Outreach_Program__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Program__c.Close_Account_on_Connected__c</field>
         <readable>true</readable>
     </fieldPermissions>

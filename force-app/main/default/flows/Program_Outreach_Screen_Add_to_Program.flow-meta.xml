@@ -140,7 +140,7 @@
         <displayField>Name</displayField>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>Active__c</field>
+            <field>Allow_Add_to_Outreach_Program__c</field>
             <operator>EqualTo</operator>
             <value>
                 <booleanValue>true</booleanValue>

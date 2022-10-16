@@ -23,6 +23,10 @@
                 <behavior>Edit</behavior>
                 <field>Exclude_Send_Email_Script__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Allow_Add_to_Outreach_Program__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
