@@ -4,6 +4,7 @@
         <application>POP</application>
         <visible>true</visible>
     </applicationVisibilities>
+    <description>Allows users to see the pop app. For agents and translators, this will need to be assigned if they are internal users.</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>POP App</label>
 </PermissionSet>

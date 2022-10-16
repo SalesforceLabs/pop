@@ -107,6 +107,7 @@
             <label>It is Emailable</label>
         </rules>
     </decisions>
+    <description>When an outreach Email Status is set to Send, this Flow will trigger to send an email and then set status to Sent.</description>
     <environments>Default</environments>
     <formulas>
         <name>EmailBody_Formula</name>

@@ -17,6 +17,7 @@
             <targetReference>AddToProgram_Subflow</targetReference>
         </connector>
     </assignments>
+    <description>Screen to allow a user to add a contact to a program from a button on layout.</description>
     <environments>Default</environments>
     <interviewLabel>Program Outreach: Screen: Contact Add to Program {!$Flow.CurrentDateTime}</interviewLabel>
     <isOverridable>true</isOverridable>

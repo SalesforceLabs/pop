@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>55.0</apiVersion>
-    <description>When a Program Outreach is created: 1) Copy First Name, Last Name, Phone, and Do Not Call from associated Contact</description>
+    <description>When a Program Outreach is created: 1) Copy First Name, Last Name, Phone, Email, Account, and Do Not Call from associated Contact</description>
     <environments>Default</environments>
     <interviewLabel>Program Outreach: Trigger: On New {!$Flow.CurrentDateTime}</interviewLabel>
     <isOverridable>true</isOverridable>

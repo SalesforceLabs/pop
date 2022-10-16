@@ -23,6 +23,7 @@
             <label>Program Script Default Subflow Has Errors</label>
         </rules>
     </decisions>
+    <description>Screen to allow user to create a default script from a button on Program layout.</description>
     <environments>Default</environments>
     <interviewLabel>Program Script: Screen: {!$Flow.CurrentDateTime}</interviewLabel>
     <isOverridable>true</isOverridable>

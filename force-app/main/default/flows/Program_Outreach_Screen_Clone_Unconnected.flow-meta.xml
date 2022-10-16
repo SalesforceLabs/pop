@@ -23,7 +23,7 @@
             <label>Has Errors</label>
         </rules>
     </decisions>
-    <description>Launch a screen from quick action and pass program id to clone unconnected subflow</description>
+    <description>Launch a screen from quick action and pass program id to clone unconnected subflow.</description>
     <environments>Default</environments>
     <interviewLabel>Program Outreach: Screen: Clone Unconnected {!$Flow.CurrentDateTime}</interviewLabel>
     <isOverridable>true</isOverridable>

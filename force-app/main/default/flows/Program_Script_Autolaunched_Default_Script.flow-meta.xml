@@ -21,6 +21,7 @@
             </value>
         </assignmentItems>
     </assignments>
+    <description>Creates a default script for a program that can later be edited.</description>
     <environments>Default</environments>
     <interviewLabel>ProgramScript: Autolaunched: {!$Flow.CurrentDateTime}</interviewLabel>
     <isOverridable>true</isOverridable>
