@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>55.0</apiVersion>
+    <decisions>
+        <name>CloneUnconnectedSubflowError_Decision</name>
+        <label>CloneUnconnectedSubflowError Decision</label>
+        <locationX>182</locationX>
+        <locationY>398</locationY>
+        <defaultConnectorLabel>Has No Errors</defaultConnectorLabel>
+        <rules>
+            <name>OutcomeIs_CloseUnconnectedSubflowHasErrors</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Program_Outreach_Autolaunched_Clone_Unconnected_Subflow.isSuccess</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GeneralError_Subflow</targetReference>
+            </connector>
+            <label>Has Errors</label>
+        </rules>
+    </decisions>
     <description>Launch a screen from quick action and pass program id to clone unconnected subflow</description>
     <environments>Default</environments>
     <interviewLabel>Program Outreach: Screen: Clone Unconnected {!$Flow.CurrentDateTime}</interviewLabel>
@@ -28,12 +50,16 @@
     <recordLookups>
         <name>Program_GetRecord</name>
         <label>Program GetRecord</label>
-        <locationX>176</locationX>
+        <locationX>182</locationX>
         <locationY>158</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Program_Outreach_Autolaunched_Clone_Unconnected_Subflow</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>GeneralError_Subflow</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -47,7 +73,7 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
-        <locationX>50</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Program_GetRecord</targetReference>
@@ -55,10 +81,26 @@
     </start>
     <status>Active</status>
     <subflows>
+        <name>GeneralError_Subflow</name>
+        <label>GeneralError Subflow</label>
+        <locationX>50</locationX>
+        <locationY>518</locationY>
+        <flowName>POP_Screen_General_Error</flowName>
+        <inputAssignments>
+            <name>errors</name>
+            <value>
+                <elementReference>Program_Outreach_Autolaunched_Clone_Unconnected_Subflow.errors</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
         <name>Program_Outreach_Autolaunched_Clone_Unconnected_Subflow</name>
         <label>Program Outreach: Autolaunched: Clone Unconnected Subflow</label>
-        <locationX>176</locationX>
+        <locationX>182</locationX>
         <locationY>278</locationY>
+        <connector>
+            <targetReference>CloneUnconnectedSubflowError_Decision</targetReference>
+        </connector>
         <flowName>Program_Outreach_Autolaunched_Clone_Unconnected</flowName>
         <inputAssignments>
             <name>Program</name>
@@ -66,6 +108,7 @@
                 <elementReference>Program_GetRecord</elementReference>
             </value>
         </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </subflows>
     <variables>
         <name>recordId</name>

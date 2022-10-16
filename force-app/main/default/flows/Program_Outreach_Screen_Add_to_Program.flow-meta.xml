@@ -4,8 +4,8 @@
     <assignments>
         <name>ContactMissingFieldsText_Assignment</name>
         <label>ContactMissingFieldsText Assignment</label>
-        <locationX>264</locationX>
-        <locationY>854</locationY>
+        <locationX>490</locationX>
+        <locationY>974</locationY>
         <assignmentItems>
             <assignToReference>ContactMissingFields_Text</assignToReference>
             <operator>Add</operator>
@@ -20,8 +20,8 @@
     <assignments>
         <name>ContactWithOutreachText_Assignment</name>
         <label>ContactWithOutreachText Assignment</label>
-        <locationX>264</locationX>
-        <locationY>518</locationY>
+        <locationX>490</locationX>
+        <locationY>638</locationY>
         <assignmentItems>
             <assignToReference>ContactWithOutreach_Text</assignToReference>
             <operator>Add</operator>
@@ -33,6 +33,31 @@
             <targetReference>ContactWithOutreach_Loop</targetReference>
         </connector>
     </assignments>
+    <decisions>
+        <name>AddToProgramSubflowError_Decision</name>
+        <label>AddToProgramSubflowError Decision</label>
+        <locationX>226</locationX>
+        <locationY>398</locationY>
+        <defaultConnector>
+            <targetReference>ContactWithOutreach_Loop</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Errors</defaultConnectorLabel>
+        <rules>
+            <name>OutcomeIs_AddToProgramSubflowHasErrors</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>AddToProgram_Subflow.isSuccess</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GeneralError_Subflow</targetReference>
+            </connector>
+            <label>An Error Occured</label>
+        </rules>
+    </decisions>
     <description>Launch a screen from contact listview and pass in contact ids to add to a selected program. If contact already exists, it will not be added.</description>
     <dynamicChoiceSets>
         <name>ProgramActive_RecordChoiceSet</name>
@@ -56,8 +81,8 @@
     <loops>
         <name>ContactMissingFields_Loop</name>
         <label>ContactMissingFields Loop</label>
-        <locationX>176</locationX>
-        <locationY>734</locationY>
+        <locationX>402</locationX>
+        <locationY>854</locationY>
         <collectionReference>AddToProgram_Subflow.ContactMissingFields_RecordCollection</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -70,8 +95,8 @@
     <loops>
         <name>ContactWithOutreach_Loop</name>
         <label>ContactWithOutreach Loop</label>
-        <locationX>176</locationX>
-        <locationY>398</locationY>
+        <locationX>402</locationX>
+        <locationY>518</locationY>
         <collectionReference>AddToProgram_Subflow.ContactWithOutreach_RecordCollection</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -103,7 +128,7 @@
     <screens>
         <name>ProgramSelect_Screen</name>
         <label>ProgramSelect Screen</label>
-        <locationX>176</locationX>
+        <locationX>226</locationX>
         <locationY>158</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -125,8 +150,8 @@
     <screens>
         <name>ThankYou_Screen</name>
         <label>ThankYou_Screen</label>
-        <locationX>176</locationX>
-        <locationY>1070</locationY>
+        <locationX>402</locationX>
+        <locationY>1190</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -169,7 +194,7 @@
         <showHeader>false</showHeader>
     </screens>
     <start>
-        <locationX>50</locationX>
+        <locationX>100</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>ProgramSelect_Screen</targetReference>
@@ -179,10 +204,10 @@
     <subflows>
         <name>AddToProgram_Subflow</name>
         <label>AddToProgram Subflow</label>
-        <locationX>176</locationX>
+        <locationX>226</locationX>
         <locationY>278</locationY>
         <connector>
-            <targetReference>ContactWithOutreach_Loop</targetReference>
+            <targetReference>AddToProgramSubflowError_Decision</targetReference>
         </connector>
         <flowName>Program_Outreach_Autolaunched_Add_to_Program</flowName>
         <inputAssignments>
@@ -198,6 +223,19 @@
             </value>
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>GeneralError_Subflow</name>
+        <label>GeneralError Subflow</label>
+        <locationX>50</locationX>
+        <locationY>518</locationY>
+        <flowName>POP_Screen_General_Error</flowName>
+        <inputAssignments>
+            <name>errors</name>
+            <value>
+                <elementReference>AddToProgram_Subflow.errors</elementReference>
+            </value>
+        </inputAssignments>
     </subflows>
     <textTemplates>
         <name>ContactMissingFields_TextTemplate</name>

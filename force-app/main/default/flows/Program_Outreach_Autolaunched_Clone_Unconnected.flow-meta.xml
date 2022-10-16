@@ -2,6 +2,23 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>55.0</apiVersion>
     <assignments>
+        <name>Fault_Assignment</name>
+        <label>Fault Assignment</label>
+        <locationX>440</locationX>
+        <locationY>1334</locationY>
+        <assignmentItems>
+            <assignToReference>isSuccess</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>errors</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
         <name>ProgramOutreachNew_Assignment</name>
         <label>ProgramOutreachNew Assignment</label>
         <locationX>264</locationX>
@@ -107,7 +124,7 @@
         <limit>5000</limit>
         <sortOptions>
             <doesPutEmptyStringAndNullFirst>false</doesPutEmptyStringAndNullFirst>
-            <sortField>%%%NAMESPACED_ORG%%%Closed_Date_Time__c</sortField>
+            <sortField>Closed_Date_Time__c</sortField>
             <sortOrder>Asc</sortOrder>
         </sortOptions>
     </collectionProcessors>
@@ -157,6 +174,10 @@
         <connector>
             <targetReference>ProgramOutreachUpdateCollection_UpdateRecords</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Fault_Assignment</targetReference>
+        </faultConnector>
         <inputReference>ProgramOutreachNew_RecordCollection</inputReference>
     </recordCreates>
     <recordLookups>
@@ -168,6 +189,10 @@
         <connector>
             <targetReference>ProgramOutreach_CollectionSort</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Fault_Assignment</targetReference>
+        </faultConnector>
         <filterLogic>1 AND 2 AND 3 AND (4 OR 5 OR 6 OR 7) AND 8</filterLogic>
         <filters>
             <field>Status__c</field>
@@ -234,6 +259,9 @@
         <label>ProgramOutreachUpdateCollection UpdateRecords</label>
         <locationX>176</locationX>
         <locationY>1214</locationY>
+        <faultConnector>
+            <targetReference>Fault_Assignment</targetReference>
+        </faultConnector>
         <inputReference>ProgramOutreachUpdate_RecordCollection</inputReference>
     </recordUpdates>
     <start>
@@ -244,6 +272,23 @@
         </connector>
     </start>
     <status>Active</status>
+    <variables>
+        <name>errors</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>isSuccess</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <booleanValue>true</booleanValue>
+        </value>
+    </variables>
     <variables>
         <name>Program</name>
         <dataType>SObject</dataType>

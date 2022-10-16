@@ -66,6 +66,26 @@
         </connector>
     </assignments>
     <assignments>
+        <name>isSuccess_Assignment</name>
+        <label>isSuccess Assignment</label>
+        <locationX>440</locationX>
+        <locationY>1862</locationY>
+        <assignmentItems>
+            <assignToReference>isSuccess</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>errors</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
         <name>ProgramOutreachNew_Assignment</name>
         <label>ProgramOutreachNew Assignment</label>
         <locationX>1056</locationX>
@@ -205,7 +225,7 @@
             <label>Program Outreach Found</label>
         </rules>
     </decisions>
-    <description>Pass in a lsit of contact ids and program id to add as outreaches to a program. They will not be added if they already are in program or fields are missing.</description>
+    <description>Pass in a list of contact ids and program id to add as outreaches to a program. They will not be added if they already are in program or fields are missing.</description>
     <environments>Default</environments>
     <interviewLabel>Program Outreach: Autolaunched: Add to Program {!$Flow.CurrentDateTime}</interviewLabel>
     <isOverridable>true</isOverridable>
@@ -258,10 +278,14 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordCreates>
+        <description>Create any new program outreaches.</description>
         <name>ProgramOutreachNew_CreateRecords</name>
         <label>ProgramOutreachNew CreateRecords</label>
         <locationX>176</locationX>
         <locationY>1742</locationY>
+        <faultConnector>
+            <targetReference>isSuccess_Assignment</targetReference>
+        </faultConnector>
         <inputReference>ProgramOutreachNew_RecordCollection</inputReference>
     </recordCreates>
     <recordLookups>
@@ -273,6 +297,10 @@
         <connector>
             <targetReference>ProgramOutreach_GetRecords</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>isSuccess_Assignment</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -286,6 +314,7 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <description>Get any program outreaches for the contact ids passed in.</description>
         <name>ProgramOutreach_GetRecords</name>
         <label>ProgramOutreach GetRecords</label>
         <locationX>176</locationX>
@@ -294,6 +323,10 @@
         <connector>
             <targetReference>Contacts_Loop</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>isSuccess_Assignment</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Contact__c</field>
@@ -359,6 +392,13 @@
         <objectType>Contact</objectType>
     </variables>
     <variables>
+        <name>errors</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
         <name>Found</name>
         <dataType>Boolean</dataType>
         <isCollection>false</isCollection>
@@ -366,6 +406,16 @@
         <isOutput>false</isOutput>
         <value>
             <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>isSuccess</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <booleanValue>true</booleanValue>
         </value>
     </variables>
     <variables>
