@@ -2,10 +2,42 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>55.0</apiVersion>
     <assignments>
+        <name>ContactIdOutreachExist_Assignment</name>
+        <label>ContactIdOutreachExist Assignment</label>
+        <locationX>264</locationX>
+        <locationY>758</locationY>
+        <assignmentItems>
+            <assignToReference>ContactIdOutreachExist_TextCollection</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Ids_Loop</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Ids_Loop</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>ContactIdRequiredFieldsMissing_Assignment</name>
+        <label>ContactIdRequiredFieldsMissing Assignment</label>
+        <locationX>528</locationX>
+        <locationY>758</locationY>
+        <assignmentItems>
+            <assignToReference>ContactRequiredFieldsMissingOutreachExist_TextCollection</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Ids_Loop</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Ids_Loop</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>ProgramOutreachNew_Assignment</name>
         <label>ProgramOutreachNew Assignment</label>
-        <locationX>440</locationX>
-        <locationY>638</locationY>
+        <locationX>792</locationX>
+        <locationY>758</locationY>
         <assignmentItems>
             <assignToReference>ProgramOutreachNew_Record.Contact__c</assignToReference>
             <operator>Assign</operator>
@@ -34,8 +66,8 @@
     <assignments>
         <name>ProgramOutreachNewCollection_Assignment</name>
         <label>ProgramOutreachNewCollection Assignment</label>
-        <locationX>440</locationX>
-        <locationY>758</locationY>
+        <locationX>792</locationX>
+        <locationY>878</locationY>
         <assignmentItems>
             <assignToReference>ProgramOutreachCreate_RecordCollection</assignToReference>
             <operator>Add</operator>
@@ -48,16 +80,16 @@
         </connector>
     </assignments>
     <decisions>
-        <name>ProgramOutreachFound_Decision</name>
-        <label>ProgramOutreachFound Decision</label>
-        <locationX>352</locationX>
-        <locationY>518</locationY>
+        <name>ProgramOutreachCreate_Decision</name>
+        <label>ProgramOutreachCreate Decision</label>
+        <locationX>528</locationX>
+        <locationY>638</locationY>
         <defaultConnector>
             <targetReference>ProgramOutreachNew_Assignment</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <defaultConnectorLabel>We Can Create</defaultConnectorLabel>
         <rules>
-            <name>We_found_an_outreach</name>
+            <name>OutcomeIsOutreachFound</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>ProgramOutreach_GetRecord</leftValueReference>
@@ -67,9 +99,38 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Ids_Loop</targetReference>
+                <targetReference>ContactIdOutreachExist_Assignment</targetReference>
             </connector>
             <label>We found an outreach</label>
+        </rules>
+        <rules>
+            <name>OutcomeIs_ContactDoesNotHaveRequredFields</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Contact_GetRecord.FirstName</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Contact_GetRecord.Phone</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Contact_GetRecord.AccountId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ContactIdRequiredFieldsMissing_Assignment</targetReference>
+            </connector>
+            <label>Contact Does Not Have Required Fields</label>
         </rules>
     </decisions>
     <description>Launch a screen from contact listview and pass in contact ids to add to a selected program. If contact already exists, it will not be added.</description>
@@ -92,7 +153,7 @@
         <collectionReference>ids</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
-            <targetReference>ProgramOutreach_GetRecord</targetReference>
+            <targetReference>Contact_GetRecord</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
             <targetReference>ProgramOutreachNew_CreateRecords</targetReference>
@@ -121,20 +182,41 @@
         <name>ProgramOutreachNew_CreateRecords</name>
         <label>ProgramOutreachNew CreateRecords</label>
         <locationX>176</locationX>
-        <locationY>1070</locationY>
+        <locationY>1190</locationY>
         <connector>
             <targetReference>ThankYou_Screen</targetReference>
         </connector>
         <inputReference>ProgramOutreachCreate_RecordCollection</inputReference>
     </recordCreates>
     <recordLookups>
-        <name>ProgramOutreach_GetRecord</name>
-        <label>ProgramOutreach GetRecord</label>
-        <locationX>352</locationX>
+        <name>Contact_GetRecord</name>
+        <label>Contact GetRecord</label>
+        <locationX>528</locationX>
         <locationY>398</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>ProgramOutreachFound_Decision</targetReference>
+            <targetReference>ProgramOutreach_GetRecord</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Ids_Loop</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>ProgramOutreach_GetRecord</name>
+        <label>ProgramOutreach GetRecord</label>
+        <locationX>528</locationX>
+        <locationY>518</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>ProgramOutreachCreate_Decision</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -174,14 +256,44 @@
         <name>ThankYou_Screen</name>
         <label>ThankYou_Screen</label>
         <locationX>176</locationX>
-        <locationY>1190</locationY>
+        <locationY>1310</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <fields>
             <name>ThankYou_DisplayText</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;We did that add to outreach program thing. You may close this window now.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;We added contacts to the program selected. You may close this window now.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>ContactOutreach_DisplayText</name>
+            <fieldText>&lt;p&gt;These contacts already had outreaches and were not added.&lt;/p&gt;&lt;p&gt;{!ContactIdOutreachExist_TextCollection}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>ContactIdOutreachExist_TextCollection</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>ContactMissingFields_DisplayText</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;These contacts were missing required fields and were not added. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;{!ContactRequiredFieldsMissingOutreachExist_TextCollection}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>ContactRequiredFieldsMissingOutreachExist_TextCollection</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
@@ -194,6 +306,20 @@
         </connector>
     </start>
     <status>Active</status>
+    <variables>
+        <name>ContactIdOutreachExist_TextCollection</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ContactRequiredFieldsMissingOutreachExist_TextCollection</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
     <variables>
         <name>ids</name>
         <dataType>String</dataType>
