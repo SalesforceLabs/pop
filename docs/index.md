@@ -43,7 +43,7 @@ Program owners add the contacts they wish to make outreaches for. Use the Test r
 
 ### Share the Program with Agents and Translators
 
-Program owners share the program with agents and translators by using the **Share** button. Program admin needs to ensure that these users should be assigned an appropriate permission set.
+Program owners share the program with agents and translators by using the **Share** button. Read only access is all that is needed for agents to interact with the program. Program admin needs to ensure that these users should be assigned an appropriate permission set.
 
 ### Activate Program and On-Board Agents
 
