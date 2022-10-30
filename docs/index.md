@@ -1,7 +1,7 @@
 ![POP Logo](img/pop-logo_320px.png "POP")
 
 # Overview
-In POP, programs are organized lists of outreaches where agents can follow an easy to use script when making an outreach to a contact. Once finished, the agent can record awareness, comments, statuses, and sentiment and then automatically retrieve the next contact to make an outreach to.
+POP allows you to organize a lists of contacts into a program where agents can then follow an easy to use script to make outreaches to every contact. Before an outreach is finished, the agent can record useful information such as awareness, comments, statuses, and sentiment. Once an outreach is finished, the next outreach is automatically retrieved making it quick and easy to make your customers aware of your programs.
 
 # Installation
 
@@ -30,7 +30,7 @@ Coming Soon!
 ### Create a Program
 
 Program owners create programs. Programs have several configuration options.
-- Allow Add to Outreach Program: Allow other user's the program is shared to add outreaches to a program (beta)
+- Allow Add to Outreach Program: Allow other user's the program is shared to add outreaches to a program (beta).
 - Close Account on Connected: Close all outreaches if you **connect** with at least one contact at the Account.
 - Exclude Send Email Script: By default, an email will be sent for outreach if the program hasn't excluded email, the contact has an email address, and the contact has said they wish to receive an email, and the script has content in email body and subject fields. You can update the subject and body of email in the script. Use {{{First_Name}}} merge variable to make the email more personal.
 
