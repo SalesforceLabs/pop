@@ -4,7 +4,15 @@
         <enabled>true</enabled>
         <name>Can_Add_to_Outreach_Program</name>
     </customPermissions>
-    <description>Allows users to submit contacts with outreach programs.</description>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Can_View_Outreach_Details</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Can_View_Program_Details</name>
+    </customPermissions>
+    <description>Allows users to submit contacts to outreach programs.</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Program_Outreach__c.Assigned_To__c</field>
@@ -31,18 +39,13 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Program_Outreach__c.Do_Not_Call_Requested__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Program_Outreach__c.Email_Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Program_Outreach__c.Email__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -56,12 +59,17 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
+        <field>Program_Outreach__c.In_Progress_Date_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Program_Outreach__c.Indexed_Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Program_Outreach__c.Indexed_Region__c</field>
         <readable>true</readable>
     </fieldPermissions>

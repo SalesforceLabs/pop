@@ -6,7 +6,7 @@
     <externalId>false</externalId>
     <inlineHelpText>Phone of contact which is automatically set.</inlineHelpText>
     <label>Phone</label>
-    <required>true</required>
+    <required>false</required>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Phone</type>
