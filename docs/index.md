@@ -20,11 +20,25 @@ In POP, programs are organized lists of outreaches where agents can follow an ea
 
 ## Managing Programs
 
-1. **Create a Program:** Program owner creates programs and reads each field help text to understand various features.
-2. **Create Default Script:** Program owner should use Create Default Script button on Program and edit the script as desired. If you have multiple languages, clone an existing script, change the language and edit as desired.
-3. **Add Contacts as Outreaches:** Program owner adds contacts they wish to make outreaches to. Use the Test region, to add test contacts in order to train and on-board agents. Note that these contacts email address should not be real. Otherwise, an email, if that option is selected, will kick off.
-4. **Share Program with Agents and Translators:** Program owner shares the program with agents and translators by using the **Share** button.
-5. **Activate and train on Program:** When ready, program owner marks the program as active allowing agents to execute the program. Agents simply visit the program record page and follow the script.
+### Create a Program
+
+Program owner creates programs and reads each field help text to understand various features.
+
+### Create Default Script
+ 
+Program owner should use Create Default Script button on Program and edit the script as desired. If you have multiple languages, clone an existing script, change the language and edit as desired.
+
+###Add Contacts as Outreaches
+
+Program owner adds contacts they wish to make outreaches to. Use the Test region, to add test contacts in order to train and on-board agents. Note that these contacts email address should not be real. Otherwise, an email, if that option is selected, will kick off.
+
+###Share Program with Agents and Translators
+
+Program owner shares the program with agents and translators by using the **Share** button.
+
+### Activate and train on Program
+
+When ready, program owner marks the program as active allowing agents to execute the program. Agents simply visit the program record page and follow the script.
 
 That's how easy it is to run an outreach program!
 
