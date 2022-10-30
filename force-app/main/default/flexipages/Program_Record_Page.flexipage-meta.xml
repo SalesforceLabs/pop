@@ -79,6 +79,16 @@
                 <identifier>RecordActive_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Allow_Add_to_Outreach_Program__c</fieldItem>
+                <identifier>RecordAllow_Add_to_Outreach_Program_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-30fc265a-b423-4eed-8ea3-f6cf798c4187</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -101,16 +111,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Exclude_Send_Email_Script__c</fieldItem>
                 <identifier>RecordExclude_Send_Email_Script_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Allow_Add_to_Outreach_Program__c</fieldItem>
-                <identifier>RecordAllow_Add_to_Outreach_Program_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-a6905f60-d845-4cb2-ad39-aae4ea178eb9</name>
