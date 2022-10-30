@@ -28,11 +28,11 @@ Program owner creates programs and reads each field help text to understand vari
  
 Program owner should use Create Default Script button on Program and edit the script as desired. If you have multiple languages, clone an existing script, change the language and edit as desired.
 
-###Add Contacts as Outreaches
+### Add Contacts as Outreaches
 
 Program owner adds contacts they wish to make outreaches to. Use the Test region, to add test contacts in order to train and on-board agents. Note that these contacts email address should not be real. Otherwise, an email, if that option is selected, will kick off.
 
-###Share Program with Agents and Translators
+### Share Program with Agents and Translators
 
 Program owner shares the program with agents and translators by using the **Share** button.
 
