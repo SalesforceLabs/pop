@@ -6,11 +6,19 @@
     </applicationVisibilities>
     <customPermissions>
         <enabled>true</enabled>
+        <name>Can_Add_to_Outreach_Program</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
         <name>Can_Clone_Unconnected_Outreach</name>
     </customPermissions>
     <customPermissions>
         <enabled>true</enabled>
         <name>Can_Create_Default_Script</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Can_Run_Active_Script</name>
     </customPermissions>
     <customPermissions>
         <enabled>true</enabled>
