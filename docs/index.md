@@ -11,7 +11,7 @@ In POP, programs are organized lists of outreaches where agents can follow an ea
 
 1. To make adding contacts to a program easier, a list view and record action is available for Contacts.
 
-### Assigning Permissions
+### Assign Permissions
 
 1. Assign **POP Program Admin** to a user to be the administrator for all programs.
 2. Assign **POP Program Owner** to any users that will be managing specific programs.
