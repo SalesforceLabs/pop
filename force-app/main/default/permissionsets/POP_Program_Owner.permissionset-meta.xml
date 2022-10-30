@@ -14,6 +14,10 @@
     </customPermissions>
     <customPermissions>
         <enabled>true</enabled>
+        <name>Can_Reset_Test_Outreaches</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
         <name>Can_Run_Active_Script</name>
     </customPermissions>
     <customPermissions>
