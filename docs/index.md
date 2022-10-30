@@ -42,6 +42,10 @@ When ready, program owner marks the program as active allowing agents to execute
 
 That's how easy it is to run an outreach program!
 
+## Considerations
+
+1. By default, all outreaches will be set to English language and AMER region. If you would like to change this, create Flow based trigger that set new outreaches to values from your contact records.
+
 ## Advanced Features
 
 1. Use the **Clone Unconnected Outreach** button to clone outreaches that did not connect with a contact (e.g. a voice mail was reached). With this, you can do a follow-up to try and reach contact.
