@@ -15,14 +15,15 @@ Coming Soon!
 
 ### Configuration
 
-1. To make adding contacts to a program easier, a list view and record action is available for Contacts. You will need to add these actions to list view or a contact's record page.
+1. To make adding contacts to a program easier, a list view and record action is available for Contacts. You will need to add these actions to list view or a contact's record page. Set the visibility of the button to only show if the current user has the **Can_Add_to_Outreach_Program** custom permission.
 
 ### Assign Permissions
 
 1. Assign **POP Program Admin** to a user to be the administrator for all programs.
 2. Assign **POP Program Owner** to any users that will be managing specific programs.
 3. Assign **POP Program Agent** and **POP Program Translator** to any users that will be executing the progam.
-4. Assign **POP App** to agents and translators if they are internal users and will need access to the app.
+4. Assign **POP Program Submitter** to any users that will be submitting contacts to outreach programs.
+5. Assign **POP App** to agents and translators if they are internal users and will need access to the app.
 
 ## Manage Programs
 
@@ -39,7 +40,9 @@ Program owners can use the **Create Default Script** button on a Program and the
 
 ### Add Contacts to the Program as Outreaches
 
-Program owners add the contacts they wish to make outreaches for. Use the Test region to add contacts for training and on-boarding agents. Note, currently, that these contacts email address should not be real. Otherwise, an email, if that option is selected, will kick off.
+Program owners add the contacts they wish to make outreaches for. If the program is shared with users with the POP Program Submitter permission set and the contact layout has the **Add to Outreach** button added, those users can submit contacts on behalf of program owners.
+
+Use the Test region to add contacts for training and on-boarding agents. Note, currently, that these contacts email address should not be real. Otherwise, an email, if that option is selected, will kick off.
 
 ### Share the Program with Agents and Translators
 
