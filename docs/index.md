@@ -1,15 +1,21 @@
 ![POP Logo](img/pop-logo_320px.png "POP")
 
-# Instructions
-
-## Overview
+# Overview
 In POP, programs are organized lists of outreaches where agents can follow an easy to use script when making an outreach to a contact. Once finished, the agent can record awareness, comments, statuses, and sentiment and then automatically retrieve the next contact to make an outreach to.
+
+# Installation
+
+## Latest Release
+
+Coming Soon!
+
+# Instructions
 
 ## Setup
 
 ### Configuration
 
-1. To make adding contacts to a program easier, a list view and record action is available for Contacts.
+1. To make adding contacts to a program easier, a list view and record action is available for Contacts. You will need to add these actions to list view or a contact's record page.
 
 ### Assign Permissions
 
@@ -18,29 +24,32 @@ In POP, programs are organized lists of outreaches where agents can follow an ea
 3. Assign **POP Program Agent** and **POP Program Translator** to any users that will be executing the progam.
 4. Assign **POP App** to agents and translators if they are internal users and will need access to the app.
 
-## Managing Programs
+## Manage Programs
 
 ### Create a Program
 
-Program owner creates programs and reads each field help text to understand various features.
+Program owners create programs. Programs have several configuration options.
+- Allow Add to Outreach Program: Allow other user's the program is shared to add outreaches to a program (beta)
+- Close Account on Connected: Close all outreaches if you **connect** with at least one contact at the Account.
+- Exclude Send Email Script: By default, an email will be sent for outreach if the program hasn't excluded email, the contact has an email address, and the contact has said they wish to receive an email, and the script has content in email body and subject fields. You can update the subject and body of email in the script. Use {{{First_Name}}} merge variable to make the email more personal.
 
-### Create Default Script
+### Create a Default Script
  
-Program owner should use Create Default Script button on Program and edit the script as desired. If you have multiple languages, clone an existing script, change the language and edit as desired.
+Program owners can use the **Create Default Script** button on a Program and then edit the script as desired. If you have multiple languages, clone an existing script, change the language and edit as desired.
 
-### Add Contacts as Outreaches
+### Add Contacts to the Program as Outreaches
 
-Program owner adds contacts they wish to make outreaches to. Use the Test region, to add test contacts in order to train and on-board agents. Note that these contacts email address should not be real. Otherwise, an email, if that option is selected, will kick off.
+Program owners add the contacts they wish to make outreaches for. Use the Test region to add contacts for training and on-boarding agents. Note, currently, that these contacts email address should not be real. Otherwise, an email, if that option is selected, will kick off.
 
-### Share Program with Agents and Translators
+### Share the Program with Agents and Translators
 
-Program owner shares the program with agents and translators by using the **Share** button.
+Program owners share the program with agents and translators by using the **Share** button. Program admin needs to ensure that these users should be assigned an appropriate permission set.
 
-### Activate and train on Program
+### Activate Program and On-Board Agents
 
-When ready, program owner marks the program as active allowing agents to execute the program. Agents simply visit the program record page and follow the script.
+When ready, program owners mark the program as active which allows agents to actually execute the program. Agents simply visit the program record page and follow the script.
 
-That's how easy it is to run an outreach program!
+*That's how easy it is to run an outreach program!*
 
 ## Considerations
 
@@ -49,5 +58,3 @@ That's how easy it is to run an outreach program!
 ## Advanced Features
 
 1. Use the **Clone Unconnected Outreach** button to clone outreaches that did not connect with a contact (e.g. a voice mail was reached). With this, you can do a follow-up to try and reach contact.
-2. Use the **Close Account on Unconnected** option if you want to close all outreaches if you **connect** with at least one contact at the Account.
-3. By default, an email will be sent for outreach if the program hasn't excluded, the contact has an email address, and the contact has said they wish to receive an email. You can update the subject and body of email in the script. Use {{{First_Name}}} merge variable to make the email more personal.
