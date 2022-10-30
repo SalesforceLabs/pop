@@ -15,7 +15,7 @@ Coming Soon!
 
 ### Configuration
 
-### Make adding Contacts to Outreach Programs Easier
+#### Make adding Contacts to Outreach Programs Easier
 
 Included in this package are 2 buttons called **Add to Outreach Program**, one for Contact record page and one for Contact list views. Consider adding these buttons to make adding contacts to outreach programs easier. When adding the button, set the visibility to only show if the current user has the **Can_Add_to_Outreach_Program** custom permission. Additionally, consider adding **Program Outreaches** related list with fields such as name, status, closed date/time, awareness so users who submitted an outreach are aware of the status.
 
