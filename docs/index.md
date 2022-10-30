@@ -1,7 +1,7 @@
 ![POP Logo](img/pop-logo_320px.png "POP")
 
 # Overview
-POP allows you to organize a lists of contacts into a program where agents can then follow an easy to use script to make outreaches to every contact. Before an outreach is finished, the agent can record useful information such as awareness, comments, statuses, and sentiment. Once an outreach is finished, the next outreach is automatically retrieved making it quick and easy to make your customers aware of your programs.
+POP allows you to organize a lists of contacts into a program where agents can then follow an easy to use script to make outreaches to every contact. A POP program can be run with many agents simulataneously making outreaches without inadvertantly trying to connect to the same contact. Before an outreach is finished, the agent can record useful reportable information such as awareness, comments, statuses, and sentiment. After an outreach is finished, the next outreach is automatically retrieved making it quick and easy to make your customers aware of your programs.
 
 # Installation
 
