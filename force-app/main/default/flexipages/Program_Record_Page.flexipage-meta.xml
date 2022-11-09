@@ -79,26 +79,6 @@
                 <identifier>RecordNameField</identifier>
             </fieldInstance>
         </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Active__c</fieldItem>
-                <identifier>RecordActive_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Allow_Add_to_Outreach_Program__c</fieldItem>
-                <identifier>RecordAllow_Add_to_Outreach_Program_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
         <name>Facet-30fc265a-b423-4eed-8ea3-f6cf798c4187</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -109,18 +89,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Close_Account_on_Connected__c</fieldItem>
-                <identifier>RecordClose_Account_on_Connected_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Exclude_Send_Email_Script__c</fieldItem>
-                <identifier>RecordExclude_Send_Email_Script_cField</identifier>
+                <fieldItem>Record.Status__c</fieldItem>
+                <identifier>RecordStatus_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-a6905f60-d845-4cb2-ad39-aae4ea178eb9</name>
@@ -148,6 +118,68 @@
             </componentInstance>
         </itemInstances>
         <name>Facet-1a2d1115-f1f1-46d2-a4a8-4012ea33b63b</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Allow_Add_to_Outreach_Program__c</fieldItem>
+                <identifier>RecordAllow_Add_to_Outreach_Program_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Exclude_Send_Email_Script__c</fieldItem>
+                <identifier>RecordExclude_Send_Email_Script_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-8b5f6839-0d5c-4728-a0db-6feba1ab31cf</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Close_Account_on_Connected__c</fieldItem>
+                <identifier>RecordClose_Account_on_Connected_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-020c9195-b5b3-4348-9c0b-efaae1c70976</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-8b5f6839-0d5c-4728-a0db-6feba1ab31cf</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column5</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-020c9195-b5b3-4348-9c0b-efaae1c70976</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column6</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-c66ca424-b6e6-4164-8302-c64e4cfec631</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -225,6 +257,20 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
                 <identifier>flexipage_fieldSection</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>columns</name>
+                    <value>Facet-c66ca424-b6e6-4164-8302-c64e4cfec631</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>Configuration</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <identifier>flexipage_fieldSection3</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -404,9 +450,9 @@
                         <rightValue>true</rightValue>
                     </criteria>
                     <criteria>
-                        <leftValue>{!Record.Active__c}</leftValue>
+                        <leftValue>{!Record.Status__c}</leftValue>
                         <operator>EQUAL</operator>
-                        <rightValue>true</rightValue>
+                        <rightValue>In Progress</rightValue>
                     </criteria>
                 </visibilityRule>
             </componentInstance>

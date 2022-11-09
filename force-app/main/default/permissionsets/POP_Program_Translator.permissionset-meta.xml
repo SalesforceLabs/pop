@@ -110,11 +110,6 @@
         <field>Program_Script__c.Talk_Track_Outreach_Not_Aware__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Program__c.Active__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>POP Program Translator</label>
     <objectPermissions>
