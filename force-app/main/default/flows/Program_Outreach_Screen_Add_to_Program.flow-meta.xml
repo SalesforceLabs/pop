@@ -240,12 +240,12 @@
     <textTemplates>
         <name>ContactMissingFields_TextTemplate</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;&lt;a href=&quot;/{!ContactMissingFields_Loop.Id}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;{!ContactMissingFields_Loop.FirstName}&lt;/a&gt;&lt;a href=&quot;/{!ContactMissingFields_Loop.Id}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt; &lt;/a&gt;&lt;a href=&quot;/{!ContactMissingFields_Loop.Id}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;{!ContactMissingFields_Loop.LastName}&lt;/a&gt;&lt;/p&gt;</text>
+        <text>&lt;p&gt;&lt;a href=&quot;/{!ContactMissingFields_Loop.Id}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!ContactMissingFields_Loop.FirstName} {!ContactMissingFields_Loop.LastName}&lt;/a&gt;&lt;/p&gt;</text>
     </textTemplates>
     <textTemplates>
         <name>ContactWithOutreach_TextTemplate</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;&lt;a href=&quot;/{!ContactWithOutreach_Loop.Id}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!ContactWithOutreach_Loop.FirstName} &lt;/a&gt;&lt;a href=&quot;/{!ContactWithOutreach_Loop.Id}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;{!ContactWithOutreach_Loop.LastName}&lt;/a&gt;&lt;/p&gt;</text>
+        <text>&lt;p&gt;&lt;a href=&quot;/{!ContactWithOutreach_Loop.Id}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!ContactWithOutreach_Loop.FirstName} {!ContactWithOutreach_Loop.LastName}&lt;/a&gt;&lt;/p&gt;</text>
     </textTemplates>
     <variables>
         <name>ContactIdOutreachExist_TextCollection</name>
