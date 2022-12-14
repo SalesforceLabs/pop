@@ -40,7 +40,7 @@ Included in this package are 2 buttons called **Add to Outreach Program**, one f
 Program owners create programs. Programs have several configuration options.
 - Allow Add to Outreach Program: Allow other user's the program is shared to add outreaches to a program (beta).
 - Close Account on Connected: Close all outreaches if you **connect** with at least one contact at the Account.
-- Exclude Send Email Script: By default, an email will be sent for outreach if the program hasn't excluded email, the contact has an email address, and the contact has said they wish to receive an email, and the script has content in email body and subject fields. You can update the subject and body of email in the script. Use {{{First_Name}}} merge variable to make the email more personal.
+- Exclude Send Email Script: By default, an email will be sent for outreach if the program hasn't excluded email, the contact has an email address, and the contact has said they wish to receive an email, and the script has content in email body and subject fields. You can update the subject and body of email in the script. Use \{\{\{First_Name\}\}\} merge variable to make the email more personal.
 
 ### Create a Default Script
  
