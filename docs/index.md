@@ -5,11 +5,9 @@ POP allows you to organize a lists of contacts into a program where agents can t
 
 # Installation
 
-## Latest Release
+## Latest Release                                                      
 
-# Installation Info                                                       
-
-Created release 0.1.0.12
+Current Release 0.1.0.12
                                                                          
 Sandbox & Scratch Orgs:                                                   
 https://test.salesforce.com/packaging/installPackage.apexp?p0=04t8Z000000lCjoQAE                                                                    
